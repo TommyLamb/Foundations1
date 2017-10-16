@@ -1,16 +1,15 @@
-datatype IBEXP = IBAPP of IBEXP * IBEXP
-       | IBLAM of IBEXP
-       | IBID of int;
-	   
+structure ItemBruijn = struct
 
-fun printIBEXP (IBID x) = print (Int.toString x)
-  | printIBEXP (IBLAM x) = (
+fun printEXP (IBID x) = print (Int.toString x)
+  | printEXP (IBLAM x) = (
 	print "[]";
-	printIBEXP x
+	printEXP x
 	)
-  | printIBEXP (IBAPP (a, b)) = (
+  | printEXP (IBAPP (a, b)) = (
 	print "<";
-	printIBEXP a;
+	printEXP a;
 	print ">";
-	printIBEXP b
+	printEXP b
 	);
+
+end

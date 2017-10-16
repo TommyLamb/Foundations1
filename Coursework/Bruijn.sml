@@ -1,18 +1,17 @@
-datatype BEXP = BAPP of BEXP * BEXP
-       | BLAM of BEXP
-       | BID of int;
-	   
+structure Bruijn = struct
 
-fun printBEXP (BID x) = print (Int.toString x)
-  | printBEXP (BLAM x) = (
+fun printEXP (BID x) = print (Int.toString x)
+  | printEXP (BLAM x) = (
 	print "(\206\187";
-	printBEXP x;
+	printEXP x;
 	print ")"
 	)
-  | printBEXP (BAPP (a, b)) = (
+  | printEXP (BAPP (a, b)) = (
 	print "(";
-	printBEXP a;
+	printEXP a;
 	print " ";
-	printBEXP b;
+	printEXP b;
 	print ")"
 	);
+
+end

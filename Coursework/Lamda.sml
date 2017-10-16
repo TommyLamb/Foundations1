@@ -1,19 +1,17 @@
-datatype LEXP = APP of LEXP * LEXP
-       | LAM of string * LEXP
-       | ID of string;
+structure Lamda = struct
 
-fun printLEXP (ID v) = print v
-  | printLEXP (LAM (v,e)) =
+fun printEXP (ID v) = print v
+  | printEXP (LAM (v,e)) =
 		(print "(\206\187";
 		print v;
 		print ".";
-		printLEXP e;
+		printEXP e;
 		print ")")
-  | printLEXP (APP(e1,e2)) =
+  | printEXP (APP(e1,e2)) =
     (print "(";
-     printLEXP e1;
+     printEXP e1;
      print " ";
-     printLEXP e2;
+     printEXP e2;
      print ")");
 	 
 
@@ -53,15 +51,6 @@ fun subs e id (ID id1) =  if id = id1 then e else (ID id1) |
 										end));
 
 	 
-fun isRedex (APP(LAM(_,_),_)) = true
-  | isRedex _ = false;
-
-fun hasRedex (LAM(x, y)) = hasRedex y
-  | hasRedex (APP(a, b)) = (isRedex (APP(a, b))) orelse hasRedex a orelse hasRedex b (* remember oresle short circuits *)
-  | hasRedex _ = false;
-
-
-	 
 (* This leftmost reduces the given term, returning a LEXP List listing each step in the order they are carried out *)
 
 fun appToList expression [] = []
@@ -73,29 +62,37 @@ fun appFromList [] expression = []
 fun lamToList expression [] = []
   | lamToList expression (hd::tl) = (LAM (expression, hd))::lamToList expression tl;
 
+  
+fun isBetaRedex (APP(LAM(_,_),_)) = true
+  | isBetaRedex _ = false;
+
+fun hasBetaRedex (LAM(x, y)) = hasBetaRedex y
+  | hasBetaRedex (APP(a, b)) = (isBetaRedex (APP(a, b))) orelse hasBetaRedex a orelse hasBetaRedex b (* remember oresle short circuits *)
+  | hasBetaRedex _ = false;
+  
   (*beta-reduces a redex*)
-fun red (APP(LAM(id,e1),e2)) = subs e2 id e1;
+fun betaRed (APP(LAM(id,e1),e2)) = subs e2 id e1;
   
 fun leftmost (ID v) = [ID v]
   | leftmost (LAM (v, a)) =
-	 if hasRedex a then
+	 if hasBetaRedex a then
 		(LAM (v, a))::(tl (lamToList v (leftmost a))) (* tl prevents duplication of this state *)
 	else
 		[LAM (v, a)]
   | leftmost (APP (a, b)) =
-	if isRedex (APP (a, b)) then
-		(APP (a, b))::(leftmost(red (APP(a, b))))
-	else if isRedex a then
-		(APP (a, b))::(leftmost(APP((red a), b)))
-	else if isRedex b then
-		(APP (a, b))::(leftmost(APP(a, (red b))))
-	else if (hasRedex a) then (* no need to check a is not a redex due to order of statements *)
+	if isBetaRedex (APP (a, b)) then
+		(APP (a, b))::(leftmost(betaRed (APP(a, b))))
+	else if isBetaRedex a then
+		(APP (a, b))::(leftmost(APP((betaRed a), b)))
+	else if (hasBetaRedex a) then (* no need to check a is not a redex due to order of statements *)
 		let
 			val abreduction = (appFromList (leftmost a) b)
 		in
 			abreduction@(tl (leftmost (List.last abreduction))) (* tl applied to remove duplicate of the beta normal of a applied to b *)
 		end
-	else if (hasRedex b) then (* changing b cannot create a redex, else AB would be a redex *)
+	else if isBetaRedex b then
+		(APP (a, b))::(leftmost(APP(a, (betaRed b))))
+	else if (hasBetaRedex b) then (* changing b cannot create a redex, else AB would be a redex *)
 		appToList a (leftmost b) (* Thus no recursive call on AB neccessary *)
 	else (*No redexes *)
 		[APP (a, b)];
@@ -103,45 +100,102 @@ fun leftmost (ID v) = [ID v]
 (* Rightmost reduction, as above but with the application redexes resolved in a different order *)
 fun rightmost (ID v) = [ID v]
   | rightmost (LAM (v, a)) =
-	 if hasRedex a then
+	 if hasBetaRedex a then
 		(LAM (v, a))::(tl (lamToList v (rightmost a))) (* tl prevents duplication of this state *)
 	else
 		[LAM (v, a)]
   | rightmost (APP (a, b)) =
-  	if ((not (isRedex b)) andalso (hasRedex b)) then 
+  	if ((not (isBetaRedex b)) andalso (hasBetaRedex b)) then 
 		let
 			val abreduction = (appToList  a (rightmost b))
 		in
 			abreduction@(tl (rightmost (List.last abreduction))) (* tl applied to remove duplicate of a applied to the beta normal form of b *)
 		end
-	else if isRedex b then
-		(APP (a, b))::(rightmost(APP(a, (red b))))
-	else if ((not (isRedex a)) andalso (hasRedex a)) then
+	else if isBetaRedex b then
+		(APP (a, b))::(rightmost(APP(a, (betaRed b))))
+	else if ((not (isBetaRedex a)) andalso (hasBetaRedex a)) then
 		let
 			val abreduction = (appFromList (rightmost a) b)
 		in
 			abreduction@(tl (rightmost (List.last abreduction))) (* tl applied to remove duplicate of the beta normal of a applied to b *)
 		end
-	else if isRedex a then
-		(APP (a, b))::(rightmost(APP((red a), b)))
-	else if isRedex (APP (a, b)) then
-		(APP (a, b))::(rightmost(red (APP(a, b))))
+	else if isBetaRedex a then
+		(APP (a, b))::(rightmost(APP((betaRed a), b)))
+	else if isBetaRedex (APP (a, b)) then
+		(APP (a, b))::(rightmost(betaRed (APP(a, b))))
+	else (*No redexes *)
+		[APP (a, b)];
+
+
+fun betaReduce x = leftmost x;
+
+fun isEtaRedex (LAM (v, (APP (a, ID b)))) = (v = b) andalso (not (free b a))
+  | isEtaRedex _ = false;
+
+fun hasEtaRedex (ID v) = false
+  | hasEtaRedex (LAM (v, a)) = (isEtaRedex (LAM (v, a))) orelse (hasEtaRedex a)
+  | hasEtaRedex (APP (a, b)) = (hasEtaRedex a) orelse (hasEtaRedex b);
+
+fun etaRed (LAM (v, (APP (a, ID b)))) = a;
+
+fun etaReduce (ID v) = [ID v]
+  | etaReduce (LAM (v, a)) =
+	 if isEtaRedex (LAM (v, a)) then
+		(LAM (v, a))::(etaReduce (etaRed(LAM (v, a))))
+	 else if hasEtaRedex a then
+		(LAM (v, a))::(tl (lamToList v (etaReduce a))) (* tl prevents duplication of this state *)
+	else
+		[LAM (v, a)]
+  | etaReduce (APP (a, b)) =
+	if isEtaRedex a then
+		(APP (a, b))::(etaReduce(APP((etaRed a), b)))
+	else if (hasEtaRedex a) then (* no need to check a is not a redex due to order of statements *)
+		let
+			val abreduction = (appFromList (etaReduce a) b)
+		in		(* Recusrions required to ensure b is reduced *)
+			abreduction@(tl (etaReduce (List.last abreduction))) (* tl applied to remove duplicate of the eta normal of a applied to b *)
+		end
+	else if isEtaRedex b then
+		(APP (a, b))::(etaReduce(APP(a, (etaRed b))))
+	else if (hasEtaRedex b) then (* There can be no eta redexes in A at this point, and application cannot be eta reduced *)
+		appToList a (etaReduce b) (* Thus no recursive call on AB neccessary, only on b *)
 	else (*No redexes *)
 		[APP (a, b)];
 
 		
-		
 fun printBetaReduction [] = print "\n"
-  | printBetaReduction (hd::[]) = (printLEXP hd; print "\n")
-  | printBetaReduction (hd::tl) = (printLEXP hd; print " -->\206\178\n"; printBetaReduction tl);
+  | printBetaReduction (hd::[]) = (printEXP hd; print "\n")
+  | printBetaReduction (hd::tl) = (printEXP hd; print " -->\206\178\n"; printBetaReduction tl);
   
 fun printEtaReduction [] = print "\n"
-  | printEtaReduction (hd::[]) = (printLEXP hd; print "\n")
-  | printEtaReduction (hd::tl) = (printLEXP hd; print " -->\206\183\n"; printEtaReduction tl);
+  | printEtaReduction (hd::[]) = (printEXP hd; print "\n")
+  | printEtaReduction (hd::tl) = (printEXP hd; print " -->\206\183\n"; printEtaReduction tl);
   
-fun printReduction [] = print "\n"
-  | printReduction (hd::[]) = (printLEXP hd; print "\n")
-  | printReduction (hd::tl) = (printLEXP hd; print " -->\206\178\206\183\n"; printReduction tl);
+fun printBetaEtaReduction [] = print "\n"
+  | printBetaEtaReduction (hd::[]) = (printEXP hd; print "\n")
+  | printBetaEtaReduction (hd::tl) = (printEXP hd; print " -->\206\178\206\183\n"; printBetaEtaReduction tl);
 
-fun reduce x = printReduction(leftmost x);
-fun reduction x = List.last(leftmost x);
+(* Translation function V *)
+fun toItem (ID x) = IID x
+  | toItem (LAM (x, y)) = ILAM (x, toItem y)
+  | toItem (APP (a, b)) = IAPP (toItem b, toItem a);
+
+(* Note that the ordering here is due to the inability to equality test during patern matching, 
+*  f (x, x) is erronous in SML. Also due to the fact that any if statement must have an else clause. 
+*  Also becuase ( CID x, CID y) and (CID x, COM y) are not mutually exclusive *)
+fun f (CID x, CAPP (a, b)) = 
+	if (((CID x) = b) andalso (not (Combinatorics.free (CID x) a))) then
+		a
+	else
+		CAPP( CAPP (CS, f ((CID x), a)), f ((CID x), b))
+  | f (CID x, a) =
+	if ((CID x) = a) then (* Clause 1 *)
+		CI 
+	else (* clause 2 *)
+		 CAPP (CK, a); (* See comment on supporting documentation for omission of conditional *)
+
+fun toCombinatorics (ID x) = CID x
+  | toCombinatorics (APP (a, b)) = CAPP (toCombinatorics a, toCombinatorics b)
+  | toCombinatorics (LAM (x, a)) = f (CID x, (toCombinatorics a));
+
+end

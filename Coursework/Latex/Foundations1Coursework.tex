@@ -1,0 +1,392 @@
+\title{\bf Foundations1 assignment 2017}
+\author{Fairouz Kamareddine }
+\documentclass[11pt]{article} 
+
+%\documentclass{article}
+
+\usepackage{geometry}
+\geometry{verbose}
+
+%\usepackage{alltt}
+\usepackage{verbatimbox}
+\usepackage{url}
+\usepackage{latexsym}
+\usepackage{amssymb, amsmath}
+\usepackage{color}
+
+% for \includegraphics
+\usepackage{graphicx}
+
+
+
+
+%\def\rrightarrow{\rightarrow \hspace{-.65em} \rightarrow}
+%\newcommand{\la}{\lambda}
+%\newcommand{\sep}{\mbox{$.$}}  
+%\newcommand{\at}{\mbox{$\hspace{0.2em}$}}  
+%\newcommand{\be}{\beta}
+%\def\Rar{\Rightarrow}
+%\def\LRar{\Leftrightarrow}
+%\def\grval{\hspace{.4ex} \mid \hspace{-.5ex} \stackrel{\it val}{= \hspace{-.5ex} =} \hspace{.4ex}}
+%\def\isval{\hspace{.4ex} \stackrel{\it  val}{= \hspace{-.5ex} =} \hspace{.4ex}}
+%\newcommand{\ult}[2]{\mbox{$\lambda {#1} \sep {#2}$}}  % untyped lambda term
+%\def\ttT{{\tt True}}
+%\def\ttF{{\tt False}}
+%\def\nnull{{\bf null}}
+%\newcommand \cI {\mbox{I}''}
+%\newcommand \cK {\mbox{K}''}
+%\newcommand \mycS {\mbox{S}''}
+%\def\hd{{\bf hd}}
+%\def\tl{{\bf tl}}
+%\def\mycons{{\bf cons}}
+%\def\append{{\bf append}}
+%\def\reverse{{\bf reverse}}
+%\def\tc{{\bf cond }}
+%\def\tT{{\bf true }}
+%\def\tf{{\bf false }}
+%\newcommand {\cal M} {\cal M}
+%\def\equal{{\bf H }}
+%\def\mycons{{\bf cons}}
+%\def\append{{\bf append}}
+%\def\reverse{{\bf reverse}}
+%\def\tc{{\bf cond }}
+%\def\tT{{\bf true }}
+%\def\tf{{\bf false }}
+%\def\pair{{\bf pair}}
+%\def\fst{{\bf fst}}
+%\def\snd{{\bf snd}}
+%\def\ntuple{\mbox{{\bf n-tuple}}}
+%\def\nnull{{\bf null}}
+%\def\hd{{\bf hd}}
+%\def\tl{{\bf tl}}
+%\def\mycons{{\bf cons}}
+%\def\append{{\bf append}}
+%\def\reverse{{\bf reverse}}
+%\def\zero{{\bf 0}}
+%\def\one{{\bf 1}}
+%\def\two{{\bf 2}}
+%\def\three{{\bf 3}}
+%\def\six{{\bf 6}}
+%
+%\def\myn{{\bf n}}
+%\def\mym{{\bf m}}
+%\def\mynn{{\bf n+1}}
+%\def\mynm{{\bf n+m}}
+%\def\myntm{{\bf nxm}}
+%\def\succ{{\bf succ}}
+%\def\add{{\bf add}}
+%\def\iszero{{\bf iszero}}
+%\def\times{{\bf times}}
+%\def\fact{{\bf fact}}
+%\def\factfn{{\bf factfn}}
+%\def\pre{{\bf pre}}
+
+
+
+
+
+
+
+
+
+\begin{document}
+
+\maketitle
+
+
+Throughout the assignment, assume the terms and definitions given in the DATA SHEET.
+
+
+
+\begin{enumerate}
+  
+
+      \item
+        Just like I defined translation functions  $T:{\cal M}'\mapsto {\cal M}''$ and  $\omega: {\cal M}\mapsto$ $\Lambda$, give translation functions from
+        $U:{\cal M}\mapsto {\cal M}''$ and  $V:{\cal M}\mapsto{\cal M}'$ and  $\omega':{\cal M}'\mapsto$ $\Lambda'$.   Your translation functions need to be complete with all subfunctions and needed information (just like $T$ and $\omega$ were complete with all needed information).   Submit all these functions here.
+        \hfill{(1)} % sets marks in () right justified
+    \item
+      For each of the SML terms vx, vy, vz, t1, $\cdots$ t9 in \url{http://www.macs.hw.ac.uk/~fairouz/foundations-2017/slides/data-files.sml}, let the overlined term represent the corresponding term in ${\cal M}$.  I.e., $\overline{\mbox{vx}} = x$, $\overline{\mbox{vy}} = y$, $\overline{\mbox{vz}} = z$, $\overline{\mbox{t1}} = \lambda x.x$, $\overline{\mbox{t2}}
+      = \lambda y.x$, $\cdots$.\\
+      For each of $\overline{\mbox{vx}}$, $\overline{\mbox{vy}}$, $\overline{\mbox{vz}}$, $\overline{\mbox{t1}}$,
+      $\overline{\mbox{t2}}$, $\cdots \overline{\mbox{t9}}$ in ${\cal M}$, translate it into the corresponding terms of ${\cal M}'$, ${\cal M}''$, $\Lambda$ and  $\Lambda'$ using the translation functions $V$, $U$, $\omega$ and $\omega'$.  \\
+      Your output should be tidy as follows:
+
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        & $V$&$U$&$\omega$&$\omega'$\\
+        \hline
+        $\lambda x.x$ & $[x]x$ & $I''$ & $\lambda 1$ &$[\:]1$\\
+        \hline
+        \end{tabular}
+      
+        \hfill{(1)} % sets marks in () right justified
+        
+  \item
+    Just like I introduced SML terms vx, vy, vz, t1, t2, $\cdots$ t9
+    which implement terms in  ${\cal M}$, please implement the corresponding terms each of the other sets ${\cal M}'$, $\Lambda$, $\Lambda'$, ${\cal M}''$.  Your output must be like my output in
+    \url{http://www.macs.hw.ac.uk/~fairouz/foundations-2017/slides/data-files.sml},
+    for the implementation of these terms of ${\cal M}$. I.e., your output for each set must be similar to the following:
+    \hfill{(1)} % sets marks in () right justified
+
+\noindent
+The implementation of terms in ${\cal M}$ is as follows:
+\begin{verbatim}
+val vx = (ID "x");
+val vy = (ID "y");
+val vz = (ID "z");
+val t1 = (LAM("x",vx));
+val t2 = (LAM("y",vx));
+val t3 = (APP(APP(t1,t2),vz));
+val t4 = (APP(t1,vz));
+val t5 = (APP(t3,t3));
+val t6 = (LAM("x",(LAM("y",(LAM("z",
+                       (APP(APP(vx,vz),(APP(vy,vz))))))))));
+val t7 = (APP(APP(t6,t1),t1));
+val t8 = (LAM("z", (APP(vz,(APP(t1,vz))))));
+val t9 = (APP(t8,t3));
+\end{verbatim}
+
+\item
+  For each of ${\cal M}'$, $\Lambda$, $\Lambda'$, ${\cal M}''$, implement a printing function that prints its elements nicely and you need to test it on every one of the corresponding terms  vx, vy, vz, t1, t2, $\cdots$ t9.  Your output for each such set must be similar to the one below \hfill{(1)} % sets marks in () right justified
+  
+  \noindent
+  \begin{verbatim}
+(*Prints a term in classical lambda calculus*)
+fun printLEXP (ID v) =
+    print v
+  | printLEXP (LAM (v,e)) =
+    (print "(\\";
+     print v;
+     print ".";
+     printLEXP e;
+     print ")")
+  | printLEXP (APP(e1,e2)) =
+    (print "(";
+     printLEXP e1;
+     print " ";
+     printLEXP e2;
+     print ")");
+\end{verbatim}  
+Printing these  ${\cal M}$ terms yields:
+\begin{verbatim}
+printLEXP vx;
+xval it = () : unit
+
+printLEXP vy;
+yval it = () : unit
+
+printLEXP vz;
+zval it = () : unit
+
+ printLEXP t1;
+(\x.x)val it = () : unit
+
+printLEXP t2;
+(\y.x)val it = () : unit
+
+printLEXP t3;
+(((\x.x) (\y.x)) z)val it = () : unit
+
+ printLEXP t4;
+((\x.x) z)val it = () : unit
+
+printLEXP t5;
+((((\x.x) (\y.x)) z) (((\x.x) (\y.x)) z))val it = () : unit
+
+printLEXP t6;
+(\x.(\y.(\z.((x z) (y z)))))val it = () : unit
+
+printLEXP t8;
+(\z.(z ((\x.x) z)))val it = () : unit
+
+printLEXP t9;
+((\z.(z ((\x.x) z))) (((\x.x) (\y.x)) z))val it = () : unit
+
+
+
+\end{verbatim}  
+\item
+Implement in SML the translation functions $T$, $U$ and $V$ and give these implemented functions here.
+\hfill{(1)} % sets marks in () right justified
+
+\item
+  Test these functions on all possible translations between these various sets for all the given terms vx, vy, vz, t1, $\cdots$ t9 and give your output clearly.
+
+  For example, my itran translates from ${\cal M}$ to ${\cal M}'$ and my printIEXP prints expressions in ${\cal M}'$.  Hence,  
+\begin{verbatim}
+- printIEXP (itran t5);
+<<z><[y]x>[x]x><z><[y]x>[x]xval it = () : unit
+\end{verbatim}
+You need to show how all your terms are translated in all these sets and how you print them.
+\hfill{(2)} % sets marks in () right justified
+
+
+
+\item
+  Define the subterms in ${\cal M}''$ and implement this function in SML.
+  You should give below the formal definition of $subterm''$, its implementation   in SML and you need to test on finding the subterms for all combinator terms that correspond to  vx, vy, vz, t1, $\cdots$ t9.  For example, if ct1 and ct2  are the terms that correspond to t1 and t2 then
+\begin{verbatim}
+- subterm2 ct1;
+val it = [CI] : COM list
+- subterm2 ct2;
+val it = [CAPP (CK,CID "x"),CK,CID "x"] : COM list
+\end{verbatim}
+ \hfill{(1)} % sets marks in () right justified
+
+\item
+  Implement the combinatory reduction rules $=_c$ given in the data sheets and use your implementation to reduce
+  all combinator terms that correspond to  vx, vy, vz, t1, $\cdots$ t9 showing all reduction steps.  
+  For example,
+\begin{verbatim}
+-creduce ct3;
+ct3 =
+I(Kx)z -->
+Kxz -->
+x
+-creduce ct5;
+ct5 =
+I(Kx)z(I(Kx)z)-->
+K x z(I(Kx)z)-->
+x(I(Kx)z)-->
+x(Kxz) -->
+xx
+  \end{verbatim}
+   \hfill{(1)} % sets marks in () right justified
+\item
+For creduce in the above question, implement a counter that counts the number of -->s used to reach a normal form.  For example, 
+\begin{verbatim}
+-creduce ct3;
+ct3 =
+I(Kx)z -->
+Kxz -->
+x
+2 setps
+-creduce ct5;
+ct5 =
+I(Kx)z(I(Kx)z)-->
+K x z(I(Kx)z)-->
+x(I(Kx)z)-->
+x(Kxz) -->
+xx
+4 steps
+  \end{verbatim}
+ \hfill{(1)} % sets marks in () right justified
+\item
+Implement $\eta$-reduction on ${\cal M}$ and test it on many examples of your own.
+Give the implementation as well as the test showing all the reduction steps one by one until you reach a $\eta$-normal form. 
+  \hfill{(1)} % sets marks in () right justified
+\item
+Translate $\Omega \equiv (\lambda x.xx)(\lambda x.xx)$ in each of ${\cal M}'$, ${\cal M}''$, $\Lambda$ and $\Lambda'$ and give the SML implementation of all these translations.  
+  \hfill{(1)} % sets marks in () right justified
+\item
+Assume comega is your SML implementation of the term that corresponds to $\Omega$.  Run -creduce comega; and say what happens.  
+  \hfill{(1)} % sets marks in () right justified
+\item
+Give an implementation of leftmost reduction and rightmost reduction in ${\cal M}$ and test them on a number of examples that show which terminates more and which is more efficient. 
+   \hfill{(2)} % sets marks in () right justified
+
+\end{enumerate}
+\newpage
+
+\begin{center}
+\Huge{DATA SHEET}
+\end{center}
+
+%\vspace{-0.5in}
+
+At \url{http://www.macs.hw.ac.uk/~fairouz/foundations-2017/slides/data-files.sml}, you find an implementation in SML of the set of
+terms ${\cal M}$ and many operations on it.  You can use all of these in your assignment.  You can also use any other help SML functions I have given you.  Anything you use from elsewhere has to be well cited/referenced.
+
+%\vspace{-0.5in}
+$\dagger$ The syntax of the classical $\lambda$-calculus is given by
+${\cal M}  \: ::=  \:  {\cal V} \:|\: ( \lambda{{\cal V}}.{{\cal M}}) \:|\: ( {\cal M} {\cal M})$.\\
+We assume the usual notational conventions in ${\cal M}$ and use 
+the reduction rule: \\$\underline{(\lambda v. P)Q} \rightarrow_\beta P[v:=Q]$.
+
+$\dagger$ The syntax of the  $\lambda$-calculus in item notation is given by
+${\cal M}'  \: ::=  \:  {\cal V} \:|\: [{\cal V}]{\cal M}' \:|\: \langle{\cal M}'\rangle{\cal M}'$.\\
+We use the reduction rule: 
+$ \underline{\langle Q'\rangle[v]}P' \rightarrow_{\beta'} [x:=Q']P'$.
+
+%\vspace{-0.15in}
+$\dagger$ In ${\cal M}$, $(PQ)$ stands for the application of function $P$ to argument $Q$.\\
+$\dagger$ In ${\cal M}'$, $\langle Q'\rangle P'$ stands for the application of function $P'$ to argument $Q'$ (note the reverse order).
+
+%\vspace{-0.15in}
+$\dagger$ The syntax of the classical $\lambda$-calculus with de Bruijn indices is given by\\
+$\Lambda  \: ::=  \:  {\mathbb{N}} \:|\: ( \lambda{}{\Lambda}) \:|\: ( \Lambda \Lambda)$.\\
+
+%\vspace{-0.15in}
+$\dagger$ We define free variables in 
+the classical $\lambda$-calculus with de Bruijn indices as follows:
+$FV(n) = \{n\}$, $FV(AB) = FV(A)\cup FV(B)$ and $FV(\lambda A) = FV(A)\setminus\{1\}$.
+
+%\vspace{-0.15in}
+$\dagger$  For $[x_1,\cdots, x_n]$ a list (not a set) of variables, 
+we define $\omega_{[x_1,\cdots, x_n]}: {\cal M} \mapsto$ $\Lambda$ inductively by:\\
+$\omega_{[x_1,\cdots, x_n]}(v_i) = \min\{j:v_i \equiv x_j\}$\\
+$\omega_{[x_1,\cdots, x_n]}(AB) = \omega_{[x_1,\cdots, x_n]}(A)\omega_{[x_1,\cdots, x_n]}(B)$\\
+$\omega_{[x_1,\cdots, x_n]}(\lambda x.A)= \lambda \omega_{[x,x_1,\cdots, x_n]}(A)$
+
+Hence $\omega_{[x, y, x,y,z]}(x) = 1$, $\omega_{[x, y, x,y,z]}(y) = 2$ and $\omega_{[x, y, x,y,z]}(z) = 5$.\\
+Also $\omega_{[x, y, x,y,z]}(xyz) = 1\:2\:5$.\\
+Also $\omega_{[x, y, x,y,z]}(\lambda xy.xz) = \lambda \lambda 2\:7$.\\
+
+Assume our variables are ordered as follows: $v_1, v_2, v_3, \cdots$.\\
+We define $\omega : {\cal M} \mapsto$ $\Lambda$
+by $\omega(A) = \omega_{[v_1,\cdots, v_n]}(A)$ where 
+$FV(A) \subseteq \{v_1,\cdots,v_n\}$.\\
+So for example, if our variables are ordered as $x,y,z,x',y',z', \cdots$ then $\omega(\lambda xyx'.xzx')
+= \omega_{[x,y,z]}(\lambda xyx'.xzx') = \lambda\omega_{[x,x,y,z]}(\lambda yx'.xzx') = \lambda\lambda\omega_{[y,x,x,y,z]}(\lambda x'.xzx') = \lambda\lambda\lambda\omega_{[x',y,x,x,y,z]}(xzx') = \lambda\lambda\lambda 3\:6\:1$.
+
+
+%\vspace{-0.15in}
+$\dagger$ The syntax of the $\lambda$-calculus in item notation is given by\\
+$\Lambda'  \: ::=  \:  {\mathbb{N}} \:|\: [\:]{\Lambda'} \:|\: \langle \Lambda' \rangle \Lambda'$.\\
+
+%\vspace{-0.15in}
+$\dagger$ The syntax of combinatory logic is given by\\
+${\cal M}''  \: ::=  \:  {\cal V} \:|\: \mbox{I}'' \:|\: \mbox{K}'' \:|\:\mbox{K}''\:|\: ({\cal M}''{\cal M}'')$\\
+We assume that application associates to the left in ${\cal M}''$. I.e., $P''Q''R''$ stands for $((P''Q'')R'')$.\\
+We use  the reduction rules: \\
+$(\mbox{I}'') \: \:  \underline{\mbox{I}'' v} =_c v \hspace{0.5in} (\mbox{K}'') \: \:  \underline{\mbox{K}'' v_1v_2} =_c v_1 \hspace{0.5in} (\mbox{K}'') \:\:   \underline{\mbox{K}'' v_1v_2v_3} =_c v_1v_3(v_2v_3)$.\\
+Note that these rules are from left to right (and not right to left) even though they are written with an $=$ sign.\\
+\\
+$\dagger$ 
+We define free variables in combinatory logic as follows:\\
+$FV''(v) = \{v\}$\\
+$FV''(\mbox{I}'') = FV''(\mbox{K}'') = FV''(\mbox{K}'') = \{\}$\\ $FV''(P''Q'') = FV''(P'')\cup FV''(Q'')$.
+
+$\dagger$ Here is a possible translation function $T$ from ${\cal M}'$ to ${\cal M}''$:\\
+$T(v) = v      \hspace{0.5in} \: \: T([v]P') = f(v, T(P'))  \: \: \hspace{0.5in}  T(\langle Q' \rangle P') = (T(P')T(Q'))$ where\\
+$f$ takes a variable and a combinator-term and returns a combinator term according to the following numbered clauses:\\
+1. $f(v,v) = I''   \hspace{0.5in}   \: \:$\\  2. $f(v,P'')=  K''P''  \mbox{  if $v \not \in FV(P'')$}   \: \:  \hspace{0.5in} $\\
+3. $f(v,P''_1P''_2)=  \begin{cases}
+P''_1 &\quad\mbox{if $v \not \in FV(P''_1)$ and $P''_2 \equiv v$}\\
+S''f(v,P''_1)f(v,P''_2) & \quad\mbox{otherwise.} 
+\end{cases}$
+
+%\vspace{-0.15in}
+$\dagger$ Assume the following SML  datatypes which implement ${\cal M}$, $\Lambda$, ${\cal M}'$, $\Lambda'$ and ${\cal M}''$ respectively (here, if \texttt{e1} implements $A'_1$ and \texttt{e2} implements $A'_2$, then 
+ \texttt{IAPP(e1,e2)} implements $\langle A'_1\rangle A'_2$ which  stands for the function$A'_2$ applied to argument$A'_1$):
+%\vspace{-0.6in}
+\begin{verbatim}
+datatype LEXP =  
+   APP of LEXP * LEXP | LAM of string *  LEXP |  ID of string;
+
+datatype BEXP =  
+   BAPP of BEXP * BEXP | BLAM of BEXP |  BID of int;
+
+datatype IEXP =  
+   IAPP of IEXP * IEXP | ILAM of string *  IEXP |  IID of string;
+
+datatype IBEXP =  
+   IBAPP of IBEXP * IBEXP | IBLAM of    IBEXP |  IBID of int;
+
+datatype COM = CAPP of COM*COM | CID of string | CI | CK | CS;
+\end{verbatim}
+
+
+
+\end{document}
