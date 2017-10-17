@@ -1,0 +1,26 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{fun} \PYG{n+nf}{printEXP} \PYG{p}{(}\PYG{n}{CID} \PYG{n}{v}\PYG{p}{)} \PYG{p}{=} \PYG{n}{print} \PYG{n}{v}
+  \PYG{p}{|} \PYG{n+nf}{printEXP} \PYG{p}{(}\PYG{n}{CI}\PYG{p}{)} \PYG{p}{=} \PYG{n}{print} \PYG{l+s+s2}{\PYGZdq{}I\PYGZsq{}\PYGZsq{}\PYGZdq{}}
+  \PYG{p}{|} \PYG{n+nf}{printEXP} \PYG{p}{(}\PYG{n}{CS}\PYG{p}{)} \PYG{p}{=} \PYG{n}{print} \PYG{l+s+s2}{\PYGZdq{}S\PYGZsq{}\PYGZsq{}\PYGZdq{}}
+  \PYG{p}{|} \PYG{n+nf}{printEXP} \PYG{p}{(}\PYG{n}{CK}\PYG{p}{)} \PYG{p}{=} \PYG{n}{print} \PYG{l+s+s2}{\PYGZdq{}K\PYGZsq{}\PYGZsq{}\PYGZdq{}}
+  \PYG{p}{|} \PYG{n+nf}{printEXP} \PYG{p}{(}\PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{))} \PYG{p}{=} \PYG{p}{(}
+	\PYG{n}{print} \PYG{l+s+s2}{\PYGZdq{}(\PYGZdq{}}\PYG{p}{;}
+	\PYG{n}{printEXP} \PYG{n}{a}\PYG{p}{;}
+	\PYG{n}{printEXP} \PYG{n}{b}\PYG{p}{;}
+	\PYG{n}{print} \PYG{l+s+s2}{\PYGZdq{})\PYGZdq{}}
+	\PYG{p}{);}
+
+
+\PYG{n}{vx}\PYG{p}{:}     \PYG{n}{x}
+\PYG{n}{vy}\PYG{p}{:}     \PYG{n}{y}
+\PYG{n}{vz}\PYG{p}{:}     \PYG{n}{z}
+\PYG{n}{t1}\PYG{p}{:}     \PYG{n}{I\PYGZsq{}\PYGZsq{}}
+\PYG{n}{t2}\PYG{p}{:}     \PYG{p}{(}\PYG{n}{K\PYGZsq{}\PYGZsq{}x}\PYG{p}{)}
+\PYG{n}{t3}\PYG{p}{:}     \PYG{p}{((}\PYG{n}{I\PYGZsq{}\PYGZsq{}}\PYG{p}{(}\PYG{n}{K\PYGZsq{}\PYGZsq{}x}\PYG{p}{))}\PYG{n}{z}\PYG{p}{)}
+\PYG{n}{t4}\PYG{p}{:}     \PYG{p}{(}\PYG{n}{I\PYGZsq{}\PYGZsq{}z}\PYG{p}{)}
+\PYG{n}{t5}\PYG{p}{:}     \PYG{p}{(((}\PYG{n}{I\PYGZsq{}\PYGZsq{}}\PYG{p}{(}\PYG{n}{K\PYGZsq{}\PYGZsq{}x}\PYG{p}{))}\PYG{n}{z}\PYG{p}{)((}\PYG{n}{I\PYGZsq{}\PYGZsq{}}\PYG{p}{(}\PYG{n}{K\PYGZsq{}\PYGZsq{}x}\PYG{p}{))}\PYG{n}{z}\PYG{p}{))}
+\PYG{n}{t6}\PYG{p}{:}     \PYG{n}{S\PYGZsq{}\PYGZsq{}}
+\PYG{n}{t7}\PYG{p}{:}     \PYG{p}{((}\PYG{n}{S\PYGZsq{}\PYGZsq{}I\PYGZsq{}\PYGZsq{}}\PYG{p}{)}\PYG{n}{I\PYGZsq{}\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{t8}\PYG{p}{:}     \PYG{p}{((}\PYG{n}{S\PYGZsq{}\PYGZsq{}I\PYGZsq{}\PYGZsq{}}\PYG{p}{)}\PYG{n}{I\PYGZsq{}\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{t9}\PYG{p}{:}     \PYG{p}{(((}\PYG{n}{S\PYGZsq{}\PYGZsq{}I\PYGZsq{}\PYGZsq{}}\PYG{p}{)}\PYG{n}{I\PYGZsq{}\PYGZsq{}}\PYG{p}{)((}\PYG{n}{I\PYGZsq{}\PYGZsq{}}\PYG{p}{(}\PYG{n}{K\PYGZsq{}\PYGZsq{}z}\PYG{p}{))}\PYG{n}{z}\PYG{p}{))}
+\end{Verbatim}

@@ -3,7 +3,7 @@
 \documentclass[11pt]{article} 
 
 %\documentclass{article}
-
+\usepackage[utf8]{inputenc}
 \usepackage{geometry}
 \geometry{verbose}
 
@@ -15,10 +15,17 @@
 \usepackage{color}
 
 % for \includegraphics
-\usepackage{graphicx}
+%\usepackage{graphicx}
 
+\usepackage{rotating} %It's a big table
+\usepackage{minted}
+\setminted{autogobble, breakautoindent, breaklines, breakafter=(}
 
-
+\newenvironment{neverbreak} %https://tex.stackexchange.com/questions/94699/absolutely-definitely-preventing-page-break
+{\par\nobreak\vfil\penalty0\vfilneg
+	\vtop\bgroup}
+{\par\xdef\tpd{\the\prevdepth}\egroup
+	\prevdepth=\tpd}
 
 %\def\rrightarrow{\rightarrow \hspace{-.65em} \rightarrow}
 %\newcommand{\la}{\lambda}
@@ -111,7 +118,7 @@ Throughout the assignment, assume the terms and definitions given in the DATA SH
       For each of $\overline{\mbox{vx}}$, $\overline{\mbox{vy}}$, $\overline{\mbox{vz}}$, $\overline{\mbox{t1}}$,
       $\overline{\mbox{t2}}$, $\cdots \overline{\mbox{t9}}$ in ${\cal M}$, translate it into the corresponding terms of ${\cal M}'$, ${\cal M}''$, $\Lambda$ and  $\Lambda'$ using the translation functions $V$, $U$, $\omega$ and $\omega'$.  \\
       Your output should be tidy as follows:
-
+\begin{sideways}
       \begin{tabular}{|l|l|l|l|l|}
         \hline
         & $V$&$U$&$\omega$&$\omega'$\\
@@ -119,20 +126,20 @@ Throughout the assignment, assume the terms and definitions given in the DATA SH
 	$x$ & $x$ & $x$ & $1$ & $1$	\\
 	$y$ & $y$ & $y$ & $1$ & $1$	\\
 	$z$ & $z$ & $z$ & $1$ & $1$	\\
-	$(λx.x)$ & $[x]x$ & $I''$ & $\lambda 1$ & $[]1$	\\
-	$(λy.x)$ & $[y]x$ & $(K'' x)$ & $\lambda 2$ & $[]2$	\\
-	$(((λx.x) (λy.x)) z)$ & $<z><[y]x>[x]x$ & $((I'' (K'' x)) z)$ & $((\lambda 1)(\lambda 2))2$ & $ \langle2\rangle\langle[]2\rangle[]1$	\\
-	$((λx.x) z)$ & $<z>[x]x$ & $(I'' z)$ & $(\lambda 1)1$ & $\langle1\rangle[]1$	\\
-	$((((λx.x) (λy.x)) z) (((λx.x) (λy.x)) z))$ & $<<z><[y]x>[x]x><z><[y]x>[x]x$ & $(((I'' (K'' x)) z) ((I'' (K'' x)) z))$ &$(\lambda1)(\lambda2)2((\lambda1)(\lambda2)2)$ & $\langle\langle2\rangle\langle[]2\rangle[]1\rangle\langle2\rangle\langle[]2\rangle[]1$	\\
-	$(λx.(λy.(λz.((x z) (y z)))))$ & $[x][y][z]<<z>y><z>x$ & $S''$ & $\lambda\lambda\lambda31(21)$ & $[][][]\langle\langle1\rangle2\rangle\langle1\rangle3$
-	$(((λx.(λy.(λz.((x z) (y z))))) (λx.x)) (λx.x))$ & $<[x]x><[x]x>[x][y][z]<<z>y><z>x$ & $((S'' I'') I'')$ & $(\lambda\lambda\lambda31(21))(\lambda1)(\lambda1)$ & $\langle[]1\rangle\langle[]1\rangle[][][]\langle\langle1\rangle2\rangle\langle1\rangle3$	\\
-	$(λz.(z ((λx.x) z)))$ & $[z]<<z>[x]x>z$ & $((S'' I'') I'')$ & $\lambda1((\lambda1)1)$ & $[]\langle\langle1\rangle[]1\rangle1$	\\
-	$((λz.(z ((λx.x) z))) (((λx.x) (λy.x)) z))$ & $<<z><[y]x>[x]x>[z]<<z>[x]x>z$ & $(((S'' I'') I'') ((I'' (K'' x)) z))$ & $(\lambda1((\lambda1)1))((\lambda1)(\lambda2)2)$ & $\langle\langle2\rangle\langle[]2\rangle[]1\rangle[]\langle\langle1\rangle[]1\rangle1$	\\
+	$(\lambda x.x)$ & $[x]x$ & $I''$ & $\lambda 1$ & $[]1$	\\
+	$(\lambda y.x)$ & $[y]x$ & $(K'' x)$ & $\lambda 2$ & $[]2$	\\
+	$(((\lambda x.x) (\lambda y.x)) z)$ & $\langle z\rangle \langle [y]x\rangle [x]x$ & $((I'' (K'' x)) z)$ & $((\lambda 1)(\lambda 2))2$ & $ \langle2\rangle\langle[]2\rangle[]1$	\\
+	$((\lambda x.x) z)$ & $\langle z\rangle [x]x$ & $(I'' z)$ & $(\lambda 1)1$ & $\langle1\rangle[]1$	\\
+	$((((\lambda x.x) (\lambda y.x)) z) (((\lambda x.x) (\lambda y.x)) z))$ & $\langle \langle z\rangle \langle [y]x\rangle [x]x\rangle \langle z\rangle \langle [y]x\rangle [x]x$ & $(((I'' (K'' x)) z) ((I'' (K'' x)) z))$ &$(\lambda1)(\lambda2)2((\lambda1)(\lambda2)2)$ & $\langle\langle2\rangle\langle[]2\rangle[]1\rangle\langle2\rangle\langle[]2\rangle[]1$	\\
+	$(\lambda x.(\lambda y.(\lambda z.((x z) (y z)))))$ & $[x][y][z]\langle \langle z\rangle y\rangle \langle z\rangle x$ & $S''$ & $\lambda\lambda\lambda31(21)$ & $[][][]\langle\langle1\rangle2\rangle\langle1\rangle3$ \\
+	$(((\lambda x.(\lambda y.(\lambda z.((x z) (y z))))) (\lambda x.x)) (\lambda x.x))$ & $\langle [x]x\rangle \langle [x]x\rangle [x][y][z]\langle \langle z\rangle y\rangle \langle z\rangle x$ & $((S'' I'') I'')$ & $(\lambda\lambda\lambda31(21))(\lambda1)(\lambda1)$ & $\langle[]1\rangle\langle[]1\rangle[][][]\langle\langle1\rangle2\rangle\langle1\rangle3$	\\
+	$(\lambda z.(z ((\lambda x.x) z)))$ & $[z]\langle \langle z\rangle [x]x\rangle z$ & $((S'' I'') I'')$ & $\lambda1((\lambda1)1)$ & $[]\langle\langle1\rangle[]1\rangle1$	\\
+	$((\lambda z.(z ((\lambda x.x) z))) (((\lambda x.x) (\lambda y.x)) z))$ & $\langle \langle z\rangle \langle [y]x\rangle [x]x\rangle [z]\langle \langle z\rangle [x]x\rangle z$ & $(((S'' I'') I'') ((I'' (K'' x)) z))$ & $(\lambda1((\lambda1)1))((\lambda1)(\lambda2)2)$ & $\langle\langle2\rangle\langle[]2\rangle[]1\rangle[]\langle\langle1\rangle[]1\rangle1$	\\
         $\lambda x.x$ & $[x]x$ & $I''$ & $\lambda 1$ &$[\:]1$\\
         \hline
 
         \end{tabular}
-      
+    \end{sideways} 
         \hfill{(1)} % sets marks in () right justified
         
   \item
@@ -159,6 +166,84 @@ val t7 = (APP(APP(t6,t1),t1));
 val t8 = (LAM("z", (APP(vz,(APP(t1,vz))))));
 val t9 = (APP(t8,t3));
 \end{verbatim}
+
+\vspace{1cm}
+\begin{neverbreak}
+The implementation in ${\cal M}$':
+\begin{minted}{sml}
+val vx = IID "x";
+val vy = IID "y";
+val vz = IID "z";
+
+val t1 = ILAM ("x", vx);
+val t2 = ILAM ("y", vx);
+val t3 = IAPP (vz, IAPP (t2, t1));
+val t4 = IAPP (vz, t1);
+val t5 = IAPP (t3, t3);
+val t6 = ILAM("x", (ILAM ("y", (ILAM ("z", IAPP( IAPP (vz, vy), IAPP (vz, vx)))))));
+val t7 = IAPP( t1, IAPP (t1, t6));
+val t8 = ILAM("z", IAPP( IAPP (vz, t1), vz));
+val t9 = IAPP (t3, t8);
+\end{minted}
+\end{neverbreak}
+\vspace{1cm}
+\begin{neverbreak}
+The implementation in ${\cal M}$'':
+\begin{minted}{sml}
+val vx = CID "x";
+val vy = CID "y";
+val vz = CID "z";
+
+val t1 = CI;
+val t2 = CAPP (CK, vx);
+val t3 = CAPP (CAPP (CI, CAPP (CK, vx)), vz);
+val t4 = CAPP (CI, vz);
+val t5 = CAPP (CAPP (CAPP (CI, CAPP (CK, vx)), vz), CAPP (CAPP (CI, CAPP (CK, vx)), vz));
+val t6 = CS;
+val t7 = CAPP (CAPP (CS, CI), CI);
+val t8 = CAPP (CAPP (CS, CI), CI);
+val t9 = CAPP (CAPP (CAPP (CS, CI), CI), CAPP (CAPP (CI, CAPP (CK, vz)), vz));
+\end{minted}
+\end{neverbreak}
+\vspace{1cm}
+\begin{neverbreak}
+The implementation in $\Lambda$:
+\begin{minted}{sml}
+val vx = BID 1;
+val vy = BID 2;
+val vz = BID 3;
+
+val t1 = BLAM (BID 1);
+val t2 = BLAM (BID 2);
+val t3 = BAPP (BAPP (t1, t2), BID 2);
+val t4 = BAPP (BLAM (BID 1), BID 1);
+val t5 = BAPP (BAPP (BAPP ( BLAM (BID 1), BLAM (BID 2)),BID 2), (BAPP (BAPP ( BLAM (BID 1), BLAM (BID 2)),BID 2)));
+val t6 = BLAM (BLAM (BLAM ( BAPP (BAPP (BID 3, BID 2), BAPP (BID 2, BID 1)))));
+val t7 = BAPP (BAPP ( t6, t1), t1);
+val t8 = BLAM (BAPP (BID 1,BAPP( BLAM ( BID 1), BID 1)));
+val t9 = BAPP (t8, t3);
+\end{minted}
+\end{neverbreak}
+\vspace{1cm}
+\begin{neverbreak}
+The implementation in $\Lambda$':
+\begin{minted}{sml}
+val vx = IBID 1;
+val vy = IBID 2;
+val vz = IBID 3;
+
+val t1 = IBLAM (IBID 1);
+val t2 = IBLAM (IBID 2);
+val t3 = IBAPP (IBAPP (t2, t1), IBID 2);
+val t4 = IBAPP (IBID 1, IBLAM (IBID 1));
+val t5 = IBAPP ((IBAPP (IBID 2,IBAPP (IBLAM (IBID 2), IBLAM (IBID 1)))),IBAPP (IBID 2, IBAPP (IBLAM (IBID 2), IBLAM (IBID 1))));
+val t6 = IBLAM (IBLAM (IBLAM ( IBAPP (IBAPP (IBID 1, IBID 2), IBAPP (IBID 2, IBID 3)))));
+val t7 = IBAPP (t1, IBAPP ( t1, t6));
+val t8 = IBLAM (IBAPP (IBAPP(IBID 1, IBLAM ( IBID 1)), IBID 1));
+val t9 = IBAPP (t3, t8);
+\end{minted}
+\end{neverbreak}
+
 
 \item
   For each of ${\cal M}'$, $\Lambda$, $\Lambda'$, ${\cal M}''$, implement a printing function that prints its elements nicely and you need to test it on every one of the corresponding terms  vx, vy, vz, t1, t2, $\cdots$ t9.  Your output for each such set must be similar to the one below \hfill{(1)} % sets marks in () right justified
@@ -218,10 +303,198 @@ printLEXP t9;
 
 
 
-\end{verbatim}  
+\end{verbatim}
+\begin{neverbreak} 
+In ${\cal M}'$ notation:
+\begin{minted}{sml}
+fun printEXP (IID x) = print x
+  | printEXP (ILAM (x, y)) = (
+	print "[";
+	print x;
+	print "]";
+	printEXP y
+	)
+  | printEXP (IAPP (a, b)) = (
+	print "<";
+	printEXP a;
+	print ">";
+	printEXP b
+	);
+
+vx:     x
+vy:     y
+vz:     z
+t1:     [x]x
+t2:     [y]x
+t3:     <z><[y]x>[x]x
+t4:     <z>[x]x
+t5:     <<z><[y]x>[x]x><z><[y]x>[x]x
+t6:     [x][y][z]<<z>y><z>x
+t7:     <[x]x><[x]x>[x][y][z]<<z>y><z>x
+t8:     [z]<<z>[x]x>z
+t9:     <<z><[y]x>[x]x>[z]<<z>[x]x>z
+\end{minted}
+\end{neverbreak} 
+
+
+\vspace{1cm}
+\begin{neverbreak}
+In ${\cal M}''$ notation:
+\begin{minted}{sml}
+fun printEXP (CID v) = print v
+  | printEXP (CI) = print "I''"
+  | printEXP (CS) = print "S''"
+  | printEXP (CK) = print "K''"
+  | printEXP (CAPP (a, b)) = (
+	print "("; 
+	printEXP a;
+	printEXP b;
+	print ")"
+	);
+	
+	
+vx:     x
+vy:     y
+vz:     z
+t1:     I''
+t2:     (K''x)
+t3:     ((I''(K''x))z)
+t4:     (I''z)
+t5:     (((I''(K''x))z)((I''(K''x))z))
+t6:     S''
+t7:     ((S''I'')I'')
+t8:     ((S''I'')I'')
+t9:     (((S''I'')I'')((I''(K''z))z))
+\end{minted}
+\end{neverbreak} 
+
+\vspace{1cm}
+\begin{neverbreak}
+	In $\Lambda$ notation:
+	\begin{minted}[escapeinside=!!]{sml}
+fun printEXP (BID x) = print (Int.toString x)
+  | printEXP (BLAM x) = (
+	print "(\206\187";
+	printEXP x;
+	print ")"
+	)
+  | printEXP (BAPP (a, b)) = (
+	print "(";
+	printEXP a;
+	printEXP b;
+	print ")"
+	);
+	
+	
+vx:     1
+vy:     2
+vz:     3	
+t1:     (!$\lambda$!1)
+t2:     (!$\lambda$!2)
+t3:     (((!$\lambda$!1)(!$\lambda$!2))2)
+t4:     ((!$\lambda$!1)1)
+t5:     ((((!$\lambda$!1)(!$\lambda$!2))2)(((!$\lambda$!1)(!$\lambda$!2))2))
+t6:     (!$\lambda$!(!$\lambda$!(!$\lambda$!((32)(21)))))
+t7:     (((!$\lambda$!(!$\lambda$!(!$\lambda$!((32)(21)))))(!$\lambda$!1))(!$\lambda$!1))
+t8:     (!$\lambda$!(1((!$\lambda$!1)1)))
+t9:     ((!$\lambda$!(1((!$\lambda$!1)1)))(((!$\lambda$!1)(!$\lambda$!2))2))
+	\end{minted}
+\end{neverbreak}
+
+\vspace{1cm}
+\begin{neverbreak}
+	In $\Lambda$' notation:
+	\begin{minted}{sml}
+fun printEXP (IBID x) = print (Int.toString x)
+  | printEXP (IBLAM x) = (
+	print "[]";
+	printEXP x
+	)
+  | printEXP (IBAPP (a, b)) = (
+	print "<";
+	printEXP a;
+	print ">";
+	printEXP b
+	);
+
+
+vx:     1
+vy:     2
+vz:     3
+t1:     []1
+t2:     []2
+t3:     <<[]2>[]1>2
+t4:     <1>[]1
+t5:     <<2><[]2>[]1><2><[]2>[]1
+t6:     [][][]<<1>2><2>3
+t7:     <[]1><[]1>[][][]<<1>2><2>3
+t8:     []<<1>[]1>1
+t9:     <<<[]2>[]1>2>[]<<1>[]1>1
+	\end{minted}
+\end{neverbreak}
+
+\pagebreak
 \item
 Implement in SML the translation functions $T$, $U$ and $V$ and give these implemented functions here.
-\hfill{(1)} % sets marks in () right justified
+\hfill{(1)}\\ % sets marks in () right justified
+
+\begin{neverbreak}
+	$T:{\cal M}'\mapsto {\cal M}''$\\
+	\begin{minted}{sml}
+(* Note that the ordering here is due to the inability to equality test during patern matching, 
+*  f (x, x) is erronous in SML. Also due to the fact that any if statement must have an else clause. 
+*  Also becuase ( CID x, CID y) and (CID x, COM y) are not mutually exclusive *)
+fun f (CID x, CAPP (a, b)) = 
+	if (((CID x) = b) andalso (not (Combinatorics.free (CID x) a))) then
+		a
+	else
+		CAPP( CAPP (CS, f ((CID x), a)), f ((CID x), b))
+  | f (CID x, a) =
+	if ((CID x) = a) then (* Clause 1 *)
+		CI 
+	else (* clause 2 *)
+		CAPP (CK, a);
+
+fun toCombinatorics (IID x) = CID x
+| toCombinatorics (IAPP (a, b)) = CAPP (toCombinatorics b, toCombinatorics a)
+| toCombinatorics (ILAM (x, a)) = f (CID x, (toCombinatorics a));
+	\end{minted}
+\end{neverbreak}
+\vspace{1cm}
+\begin{neverbreak}
+	$U:{\cal M}\mapsto {\cal M}''$\\
+	
+	\begin{minted}{sml}
+(* Note that the ordering here is due to the inability to equality test during patern matching, 
+*  f (x, x) is erronous in SML. Also due to the fact that any if statement must have an else clause. 
+*  Also becuase ( CID x, CID y) and (CID x, COM y) are not mutually exclusive *)
+fun f (CID x, CAPP (a, b)) = 
+	if (((CID x) = b) andalso (not (Combinatorics.free (CID x) a))) then
+		a
+	else
+		CAPP( CAPP (CS, f ((CID x), a)), f ((CID x), b))
+  | f (CID x, a) =
+	if ((CID x) = a) then (* Clause 1 *)
+		CI 
+	else (* clause 2 *)
+		CAPP (CK, a); (* See comment on supporting documentation for omission of conditional *)
+
+fun toCombinatorics (ID x) = CID x
+  | toCombinatorics (APP (a, b)) = CAPP (toCombinatorics a, toCombinatorics b)
+  | toCombinatorics (LAM (x, a)) = f (CID x, (toCombinatorics a));
+	\end{minted}
+\end{neverbreak}
+
+\vspace{1cm}
+\begin{neverbreak}
+	$V:{\cal M}\mapsto{\cal M}'$\\
+	
+	\begin{minted}{sml}
+fun toItem (ID x) = IID x
+  | toItem (LAM (x, y)) = ILAM (x, toItem y)
+  | toItem (APP (a, b)) = IAPP (toItem b, toItem a);
+	\end{minted}
+\end{neverbreak}
 
 \item
   Test these functions on all possible translations between these various sets for all the given terms vx, vy, vz, t1, $\cdots$ t9 and give your output clearly.

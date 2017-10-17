@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{val} \PYG{n+nv}{vx} \PYG{p}{=} \PYG{n}{CID} \PYG{l+s+s2}{\PYGZdq{}x\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kr}{val} \PYG{n+nv}{vy} \PYG{p}{=} \PYG{n}{CID} \PYG{l+s+s2}{\PYGZdq{}y\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kr}{val} \PYG{n+nv}{vz} \PYG{p}{=} \PYG{n}{CID} \PYG{l+s+s2}{\PYGZdq{}z\PYGZdq{}}\PYG{p}{;}
+
+\PYG{k+kr}{val} \PYG{n+nv}{t1} \PYG{p}{=} \PYG{n}{CI}\PYG{p}{;}
+\PYG{k+kr}{val} \PYG{n+nv}{t2} \PYG{p}{=} \PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CK}\PYG{p}{,} \PYG{n}{vx}\PYG{p}{);}
+\PYG{k+kr}{val} \PYG{n+nv}{t3} \PYG{p}{=} \PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CI}\PYG{p}{,} \PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CK}\PYG{p}{,} \PYG{n}{vx}\PYG{p}{)),} \PYG{n}{vz}\PYG{p}{);}
+\PYG{k+kr}{val} \PYG{n+nv}{t4} \PYG{p}{=} \PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CI}\PYG{p}{,} \PYG{n}{vz}\PYG{p}{);}
+\PYG{k+kr}{val} \PYG{n+nv}{t5} \PYG{p}{=} \PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CI}\PYG{p}{,} \PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CK}\PYG{p}{,} \PYG{n}{vx}\PYG{p}{)),} \PYG{n}{vz}\PYG{p}{),} \PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CI}\PYG{p}{,} \PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CK}\PYG{p}{,} \PYG{n}{vx}\PYG{p}{)),} \PYG{n}{vz}\PYG{p}{));}
+\PYG{k+kr}{val} \PYG{n+nv}{t6} \PYG{p}{=} \PYG{n}{CS}\PYG{p}{;}
+\PYG{k+kr}{val} \PYG{n+nv}{t7} \PYG{p}{=} \PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CS}\PYG{p}{,} \PYG{n}{CI}\PYG{p}{),} \PYG{n}{CI}\PYG{p}{);}
+\PYG{k+kr}{val} \PYG{n+nv}{t8} \PYG{p}{=} \PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CS}\PYG{p}{,} \PYG{n}{CI}\PYG{p}{),} \PYG{n}{CI}\PYG{p}{);}
+\PYG{k+kr}{val} \PYG{n+nv}{t9} \PYG{p}{=} \PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CS}\PYG{p}{,} \PYG{n}{CI}\PYG{p}{),} \PYG{n}{CI}\PYG{p}{),} \PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CI}\PYG{p}{,} \PYG{n}{CAPP} \PYG{p}{(}\PYG{n}{CK}\PYG{p}{,} \PYG{n}{vz}\PYG{p}{)),} \PYG{n}{vz}\PYG{p}{));}
+\end{Verbatim}

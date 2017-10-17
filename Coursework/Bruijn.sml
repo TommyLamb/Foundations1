@@ -9,7 +9,6 @@ fun printEXP (BID x) = print (Int.toString x)
   | printEXP (BAPP (a, b)) = (
 	print "(";
 	printEXP a;
-	print " ";
 	printEXP b;
 	print ")"
 	);

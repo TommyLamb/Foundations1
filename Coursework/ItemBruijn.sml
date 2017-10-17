@@ -12,6 +12,10 @@ fun printEXP (IBID x) = print (Int.toString x)
 	printEXP b
 	);
 
+val vx = IBID 1;
+val vy = IBID 2;
+val vz = IBID 3;
+	
 val t1 = IBLAM (IBID 1);
 val t2 = IBLAM (IBID 2);
 val t3 = IBAPP (IBAPP (t2, t1), IBID 2);

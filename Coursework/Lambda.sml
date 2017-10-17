@@ -1,4 +1,4 @@
-structure Lamda = struct
+structure Lambda = struct
 
 fun printEXP (ID v) = print v
   | printEXP (LAM (v,e)) =

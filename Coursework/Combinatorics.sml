@@ -1,13 +1,12 @@
 structure Combinatorics = struct
 
 fun printEXP (CID v) = print v
-  | printEXP (CI) = print "I"
-  | printEXP (CS) = print "S"
-  | printEXP (CK) = print "K"
+  | printEXP (CI) = print "I''"
+  | printEXP (CS) = print "S''"
+  | printEXP (CK) = print "K''"
   | printEXP (CAPP (a, b)) = (
 	print "("; 
 	printEXP a;
-	print " ";
 	printEXP b;
 	print ")"
 	);
@@ -106,5 +105,9 @@ val t6 = CS;
 val t7 = CAPP (CAPP (CS, CI), CI);
 val t8 = CAPP (CAPP (CS, CI), CI);
 val t9 = CAPP (CAPP (CAPP (CS, CI), CI), CAPP (CAPP (CI, CAPP (CK, vz)), vz));
+
+val list = [vx, vy, vz, t1, t2, t3, t4, t5, t6, t7, t8, t9];
+
+
 
 end

@@ -24,4 +24,4 @@ use "Bruijn.sml";
 use "Combinatorics.sml";
 use "Item.sml";
 use "ItemBruijn.sml";
-use "Lamda.sml";
+use "Lambda.sml";

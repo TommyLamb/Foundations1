@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{fun} \PYG{n+nf}{printEXP} \PYG{p}{(}\PYG{n}{IID} \PYG{n}{x}\PYG{p}{)} \PYG{p}{=} \PYG{n}{print} \PYG{n}{x}
+  \PYG{p}{|} \PYG{n+nf}{printEXP} \PYG{p}{(}\PYG{n}{ILAM} \PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{))} \PYG{p}{=} \PYG{p}{(}
+	\PYG{n}{print} \PYG{l+s+s2}{\PYGZdq{}[\PYGZdq{}}\PYG{p}{;}
+	\PYG{n}{print} \PYG{n}{x}\PYG{p}{;}
+	\PYG{n}{print} \PYG{l+s+s2}{\PYGZdq{}]\PYGZdq{}}\PYG{p}{;}
+	\PYG{n}{printEXP} \PYG{n}{y}
+	\PYG{p}{)}
+  \PYG{p}{|} \PYG{n+nf}{printEXP} \PYG{p}{(}\PYG{n}{IAPP} \PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{))} \PYG{p}{=} \PYG{p}{(}
+	\PYG{n}{print} \PYG{l+s+s2}{\PYGZdq{}\PYGZlt{}\PYGZdq{}}\PYG{p}{;}
+	\PYG{n}{printEXP} \PYG{n}{a}\PYG{p}{;}
+	\PYG{n}{print} \PYG{l+s+s2}{\PYGZdq{}\PYGZgt{}\PYGZdq{}}\PYG{p}{;}
+	\PYG{n}{printEXP} \PYG{n}{b}
+	\PYG{p}{);}
+
+\PYG{n}{vx}\PYG{p}{:}     \PYG{n}{x}
+\PYG{n}{vy}\PYG{p}{:}     \PYG{n}{y}
+\PYG{n}{vz}\PYG{p}{:}     \PYG{n}{z}
+\PYG{n}{t1}\PYG{p}{:}     \PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{n}{x}
+\PYG{n}{t2}\PYG{p}{:}     \PYG{p}{[}\PYG{n}{y}\PYG{p}{]}\PYG{n}{x}
+\PYG{n}{t3}\PYG{p}{:}     \PYG{n}{\PYGZlt{}z\PYGZgt{}\PYGZlt{}}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]}\PYG{n}{x\PYGZgt{}}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{n}{x}
+\PYG{n}{t4}\PYG{p}{:}     \PYG{n}{\PYGZlt{}z\PYGZgt{}}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{n}{x}
+\PYG{n}{t5}\PYG{p}{:}     \PYG{n}{\PYGZlt{}\PYGZlt{}z\PYGZgt{}\PYGZlt{}}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]}\PYG{n}{x\PYGZgt{}}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{n}{x\PYGZgt{}\PYGZlt{}z\PYGZgt{}\PYGZlt{}}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]}\PYG{n}{x\PYGZgt{}}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{n}{x}
+\PYG{n}{t6}\PYG{p}{:}     \PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{y}\PYG{p}{][}\PYG{n}{z}\PYG{p}{]}\PYG{n}{\PYGZlt{}\PYGZlt{}z\PYGZgt{}y\PYGZgt{}\PYGZlt{}z\PYGZgt{}x}
+\PYG{n}{t7}\PYG{p}{:}     \PYG{n}{\PYGZlt{}}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{n}{x\PYGZgt{}\PYGZlt{}}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{n}{x\PYGZgt{}}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{y}\PYG{p}{][}\PYG{n}{z}\PYG{p}{]}\PYG{n}{\PYGZlt{}\PYGZlt{}z\PYGZgt{}y\PYGZgt{}\PYGZlt{}z\PYGZgt{}x}
+\PYG{n}{t8}\PYG{p}{:}     \PYG{p}{[}\PYG{n}{z}\PYG{p}{]}\PYG{n}{\PYGZlt{}\PYGZlt{}z\PYGZgt{}}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{n}{x\PYGZgt{}z}
+\PYG{n}{t9}\PYG{p}{:}     \PYG{n}{\PYGZlt{}\PYGZlt{}z\PYGZgt{}\PYGZlt{}}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]}\PYG{n}{x\PYGZgt{}}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{n}{x\PYGZgt{}}\PYG{p}{[}\PYG{n}{z}\PYG{p}{]}\PYG{n}{\PYGZlt{}\PYGZlt{}z\PYGZgt{}}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{n}{x\PYGZgt{}z}
+\end{Verbatim}

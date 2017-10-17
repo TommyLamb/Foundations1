@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k+kr}{fun} \PYG{n+nf}{printEXP} \PYG{p}{(}\PYG{n}{BID} \PYG{n}{x}\PYG{p}{)} \PYG{p}{=} \PYG{n}{print} \PYG{p}{(}\PYG{n+nn}{Int}\PYG{p}{.}\PYG{n}{toString} \PYG{n}{x}\PYG{p}{)}
+  \PYG{p}{|} \PYG{n+nf}{printEXP} \PYG{p}{(}\PYG{n}{BLAM} \PYG{n}{x}\PYG{p}{)} \PYG{p}{=} \PYG{p}{(}
+	\PYG{n}{print} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{(}\PYG{l+s+se}{\PYGZbs{}206}\PYG{l+s+se}{\PYGZbs{}187}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
+	\PYG{n}{printEXP} \PYG{n}{x}\PYG{p}{;}
+	\PYG{n}{print} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{)}\PYG{l+s+s2}{\PYGZdq{}}
+	\PYG{p}{)}
+  \PYG{n}{|} \PYG{n}{printEXP} \PYG{p}{(}\PYG{n}{BAPP} \PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)}\PYG{p}{)} \PYG{p}{=} \PYG{p}{(}
+	\PYG{n}{print} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
+	\PYG{n}{printEXP} \PYG{n}{a}\PYG{p}{;}
+	\PYG{n}{printEXP} \PYG{n}{b}\PYG{p}{;}
+	\PYG{n}{print} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{)}\PYG{l+s+s2}{\PYGZdq{}}
+	\PYG{p}{)}\PYG{p}{;}
+
+
+\PYG{n}{vx}\PYG{p}{:}     \PYG{l+m+mi}{1}
+\PYG{n}{vy}\PYG{p}{:}     \PYG{l+m+mi}{2}
+\PYG{n}{vz}\PYG{p}{:}     \PYG{l+m+mi}{3}
+\PYG{n}{t1}\PYG{p}{:}     \PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{t2}\PYG{p}{:}     \PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n}{t3}\PYG{p}{:}     \PYG{p}{(}\PYG{p}{(}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}\PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n}{t4}\PYG{p}{:}     \PYG{p}{(}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{t5}\PYG{p}{:}     \PYG{p}{(}\PYG{p}{(}\PYG{p}{(}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{(}\PYG{p}{(}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{t6}\PYG{p}{:}     \PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{p}{(}\PYG{p}{(}\PYG{l+m+mi}{32}\PYG{p}{)}\PYG{p}{(}\PYG{l+m+mi}{21}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{t7}\PYG{p}{:}     \PYG{p}{(}\PYG{p}{(}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{p}{(}\PYG{p}{(}\PYG{l+m+mi}{32}\PYG{p}{)}\PYG{p}{(}\PYG{l+m+mi}{21}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{t8}\PYG{p}{:}     \PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{(}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{t9}\PYG{p}{:}     \PYG{p}{(}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{(}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{(}\PYG{p}{(}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{(}\PYG{esc}{$\lambda$}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}
+\end{Verbatim}

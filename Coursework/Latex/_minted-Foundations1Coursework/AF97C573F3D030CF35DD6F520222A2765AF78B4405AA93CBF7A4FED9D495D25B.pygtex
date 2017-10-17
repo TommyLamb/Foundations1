@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{fun} \PYG{n+nf}{toItem} \PYG{p}{(}\PYG{n}{ID} \PYG{n}{x}\PYG{p}{)} \PYG{p}{=} \PYG{n}{IID} \PYG{n}{x}
+  \PYG{p}{|} \PYG{n+nf}{toItem} \PYG{p}{(}\PYG{n}{LAM} \PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{))} \PYG{p}{=} \PYG{n}{ILAM} \PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{toItem} \PYG{n}{y}\PYG{p}{)}
+  \PYG{p}{|} \PYG{n+nf}{toItem} \PYG{p}{(}\PYG{n}{APP} \PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{))} \PYG{p}{=} \PYG{n}{IAPP} \PYG{p}{(}\PYG{n}{toItem} \PYG{n}{b}\PYG{p}{,} \PYG{n}{toItem} \PYG{n}{a}\PYG{p}{);}
+\end{Verbatim}
