@@ -92,4 +92,19 @@ fun free (CID id) (CID x) = (id = x)
 
 val red3 =  (CAPP ((CAPP ((CAPP (CS, CID "v1")), CID "v2")), CID "v3"));
 
+
+val vx = CID "x";
+val vy = CID "y";
+val vz = CID "z";
+
+val t1 = CI;
+val t2 = CAPP (CK, vx);
+val t3 = CAPP (CAPP (CI, CAPP (CK, vx)), vz);
+val t4 = CAPP (CI, vz);
+val t5 = CAPP (CAPP (CAPP (CI, CAPP (CK, vx)), vz), CAPP (CAPP (CI, CAPP (CK, vx)), vz));
+val t6 = CS;
+val t7 = CAPP (CAPP (CS, CI), CI);
+val t8 = CAPP (CAPP (CS, CI), CI);
+val t9 = CAPP (CAPP (CAPP (CS, CI), CI), CAPP (CAPP (CI, CAPP (CK, vz)), vz));
+
 end

@@ -33,4 +33,18 @@ fun printEXP (IID x) = print x
 	printEXP b
 	);
 
+val vx = IID "x";
+val vy = IID "y";
+val vz = IID "z";
+
+val t1 = ILAM ("x", vx);
+val t2 = ILAM ("y", vx);
+val t3 = IAPP (vz, IAPP (t2, t1));
+val t4 = IAPP (vz, t1);
+val t5 = IAPP (t3, t3);
+val t6 = ILAM("x", (ILAM ("y", (ILAM ("z", IAPP( IAPP (vz, vy), IAPP (vz, vx)))))));
+val t7 = IAPP( t1, IAPP (t1, t6));
+val t8 = ILAM("z", IAPP( IAPP (vz, t1), vz));
+val t9 = IAPP (t3, t8);
+
 end
