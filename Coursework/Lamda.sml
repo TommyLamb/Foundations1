@@ -198,4 +198,17 @@ fun toCombinatorics (ID x) = CID x
   | toCombinatorics (APP (a, b)) = CAPP (toCombinatorics a, toCombinatorics b)
   | toCombinatorics (LAM (x, a)) = f (CID x, (toCombinatorics a));
 
+val vx = (ID "x");
+val vy = (ID "y");
+val vz = (ID "z");
+val t1 = (LAM("x",vx));
+val t2 = (LAM("y",vx));
+val t3 = (APP(APP(t1,t2),vz));
+val t4 = (APP(t1,vz));
+val t5 = (APP(t3,t3));
+val t6 = (LAM("x",(LAM("y",(LAM("z",(APP(APP(vx,vz),(APP(vy,vz))))))))));
+val t7 = (APP(APP(t6,t1),t1));
+val t8 = (LAM("z", (APP(vz,(APP(t1,vz))))));
+val t9 = (APP(t8,t3));
+
 end

@@ -116,8 +116,21 @@ Throughout the assignment, assume the terms and definitions given in the DATA SH
         \hline
         & $V$&$U$&$\omega$&$\omega'$\\
         \hline
+	$x$ & $x$ & $x$ & $1$ & $1$	\\
+	$y$ & $y$ & $y$ & $1$ & $1$	\\
+	$z$ & $z$ & $z$ & $1$ & $1$	\\
+	$(λx.x)$ & $[x]x$ & $I''$ & $\lambda 1$ & $[]1$	\\
+	$(λy.x)$ & $[y]x$ & $(K'' x)$ & $\lambda 2$ & $[]2$	\\
+	$(((λx.x) (λy.x)) z)$ & $<z><[y]x>[x]x$ & $((I'' (K'' x)) z)$ & $((\lambda 1)(\lambda 2))2$ & $ \langle2\rangle\langle[]2\rangle[]1$	\\
+	$((λx.x) z)$ & $<z>[x]x$ & $(I'' z)$ & $(\lambda 1)1$ & $\langle1\rangle[]1$	\\
+	$((((λx.x) (λy.x)) z) (((λx.x) (λy.x)) z))$ & $<<z><[y]x>[x]x><z><[y]x>[x]x$ & $(((I'' (K'' x)) z) ((I'' (K'' x)) z))$ &$(\lambda1)(\lambda2)2((\lambda1)(\lambda2)2)$ & $\langle\langle2\rangle\langle[]2\rangle[]1\rangle\langle2\rangle\langle[]2\rangle[]1$	\\
+	$(λx.(λy.(λz.((x z) (y z)))))$ & $[x][y][z]<<z>y><z>x$ & $S''$ & $\lambda\lambda\lambda31(21)$ & $[][][]\langle\langle1\rangle2\rangle\langle1\rangle3$
+	$(((λx.(λy.(λz.((x z) (y z))))) (λx.x)) (λx.x))$ & $<[x]x><[x]x>[x][y][z]<<z>y><z>x$ & $((S'' I'') I'')$ & $(\lambda\lambda\lambda31(21))(\lambda1)(\lambda1)$ & $\langle[]1\rangle\langle[]1\rangle[][][]\langle\langle1\rangle2\rangle\langle1\rangle3$	\\
+	$(λz.(z ((λx.x) z)))$ & $[z]<<z>[x]x>z$ & $((S'' I'') I'')$ & $\lambda1((\lambda1)1)$ & $[]\langle\langle1\rangle[]1\rangle1$	\\
+	$((λz.(z ((λx.x) z))) (((λx.x) (λy.x)) z))$ & $<<z><[y]x>[x]x>[z]<<z>[x]x>z$ & $(((S'' I'') I'') ((I'' (K'' x)) z))$ & $(\lambda1((\lambda1)1))((\lambda1)(\lambda2)2)$ & $\langle\langle2\rangle\langle[]2\rangle[]1\rangle[]\langle\langle1\rangle[]1\rangle1$	\\
         $\lambda x.x$ & $[x]x$ & $I''$ & $\lambda 1$ &$[\:]1$\\
         \hline
+
         \end{tabular}
       
         \hfill{(1)} % sets marks in () right justified
