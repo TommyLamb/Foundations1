@@ -210,5 +210,6 @@ val t6 = (LAM("x",(LAM("y",(LAM("z",(APP(APP(vx,vz),(APP(vy,vz))))))))));
 val t7 = (APP(APP(t6,t1),t1));
 val t8 = (LAM("z", (APP(vz,(APP(t1,vz))))));
 val t9 = (APP(t8,t3));
+val omega = APP (LAM ("x", APP (ID "x", ID "x")), LAM ("x", APP (ID "x", ID "x")));
 
 end

@@ -25,5 +25,6 @@ val t6 = IBLAM (IBLAM (IBLAM ( IBAPP (IBAPP (IBID 1, IBID 2), IBAPP (IBID 2, IBI
 val t7 = IBAPP (t1, IBAPP ( t1, t6));
 val t8 = IBLAM (IBAPP (IBAPP(IBID 1, IBLAM ( IBID 1)), IBID 1));
 val t9 = IBAPP (t3, t8);
+val omega = IBAPP ( IBLAM (IBAPP(IBID 1, IBID 1)), IBLAM (IBAPP(IBID 1, IBID 1)));
  
 end

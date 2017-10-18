@@ -46,5 +46,6 @@ val t6 = ILAM("x", (ILAM ("y", (ILAM ("z", IAPP( IAPP (vz, vy), IAPP (vz, vx))))
 val t7 = IAPP( t1, IAPP (t1, t6));
 val t8 = ILAM("z", IAPP( IAPP (vz, t1), vz));
 val t9 = IAPP (t3, t8);
+val omega = IAPP (ILAM ("x", IAPP (IID "x", IID "x")), ILAM ("x", IAPP (IID "x", IID "x")));
 
 end

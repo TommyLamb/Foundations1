@@ -105,6 +105,7 @@ val t6 = CS;
 val t7 = CAPP (CAPP (CS, CI), CI);
 val t8 = CAPP (CAPP (CS, CI), CI);
 val t9 = CAPP (CAPP (CAPP (CS, CI), CI), CAPP (CAPP (CI, CAPP (CK, vz)), vz));
+val omega = CAPP (CAPP (CAPP (CS, CI), CI), CAPP (CAPP (CS, CI), CI));
 
 val list = [vx, vy, vz, t1, t2, t3, t4, t5, t6, t7, t8, t9];
 

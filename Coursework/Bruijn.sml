@@ -27,6 +27,7 @@ val t6 = BLAM (BLAM (BLAM ( BAPP (BAPP (BID 3, BID 2), BAPP (BID 2, BID 1)))));
 val t7 = BAPP (BAPP ( t6, t1), t1);
 val t8 = BLAM (BAPP (BID 1,BAPP( BLAM ( BID 1), BID 1)));
 val t9 = BAPP (t8, t3);
+val omega = BAPP ( BLAM (BAPP(BID 1, BID 1)), BLAM (BAPP(BID 1, BID 1)));
  
 
 end
