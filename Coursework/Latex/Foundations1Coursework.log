@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.12)  17 OCT 2017 17:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.12)  19 OCT 2017 21:30
 entering extended mode
 **./Foundations1Coursework.tex
 (Foundations1Coursework.tex
@@ -695,18 +695,18 @@ runsystem(del Foundations1Coursework.aex)...executed.
 (Foundations1Coursework.aux)
 \openout1 = `Foundations1Coursework.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -771,27 +771,62 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 101.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 35.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 101.
+LaTeX Font Info:    Try loading font information for U+msa on input line 35.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 101.
+LaTeX Font Info:    Try loading font information for U+msb on input line 35.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+Underfull \hbox (badness 10000) in paragraph at lines 38--43
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--66
+
+ []
+
+[1
 
 {C:/Users/Tommy/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \vbox (191.01181pt too high) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 67--76
 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--76
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--109
+
+ []
 
 [2]
+Overfull \vbox (133.14082pt too high) has occurred while \output is active []
+
+
+[3]
 \openout3 = `Foundations1Coursework.pyg'.
 
  (_minted-Foundations1Coursework/default-pyg-prefix.pygstyle)
@@ -805,61 +840,66 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
 
 
 (_minted-Foundations1Coursework/932F7A80BFACFE573419613637537B385AF78B4405AA93C
-BF7A4FED9D495D25B.pygtex) [3]
-\openout3 = `Foundations1Coursework.pyg'.
-
-
-(_minted-Foundations1Coursework/743E76A0DF1BFCA0F668C875825B307F5AF78B4405AA93C
 BF7A4FED9D495D25B.pygtex) [4]
 \openout3 = `Foundations1Coursework.pyg'.
 
 
-(_minted-Foundations1Coursework/1B0CA8A01FA63D5D0B84FBAA6CB7444F5AF78B4405AA93C
-BF7A4FED9D495D25B.pygtex) [5] [6]
+(_minted-Foundations1Coursework/E233290952241583CC09F6B77AF635615AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex) [5]
+\openout3 = `Foundations1Coursework.pyg'.
+
+
+(_minted-Foundations1Coursework/3938230BCC4B94E8D296213FDAD9F8025AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex) [6] [7]
 \openout3 = `Foundations1Coursework.pyg'.
 
 
 (_minted-Foundations1Coursework/FCDE035E13D55602059F4357CE1641F35AF78B4405AA93C
-BF7A4FED9D495D25B.pygtex) [7]
-\openout3 = `Foundations1Coursework.pyg'.
-
-
-(_minted-Foundations1Coursework/F9BC7446A107D176E26116645110DD9C5AF78B4405AA93C
 BF7A4FED9D495D25B.pygtex) [8]
 \openout3 = `Foundations1Coursework.pyg'.
 
 
-(_minted-Foundations1Coursework/4A85C46C00078211AFAB853D1B30014685D552F3ABB662D
-EE55FB4EDDDFEC816.pygtex) [9]
+(_minted-Foundations1Coursework/F9BC7446A107D176E26116645110DD9C5AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex) [9]
 \openout3 = `Foundations1Coursework.pyg'.
 
 
-(_minted-Foundations1Coursework/00F329A2FCC518FA4D13A4A0C119D8F75AF78B4405AA93C
-BF7A4FED9D495D25B.pygtex) [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 438--440
+(_minted-Foundations1Coursework/4A759FFD808AD453C94B5B58942F3FAD85D552F3ABB662D
+EE55FB4EDDDFEC816.pygtex) [10]
+\openout3 = `Foundations1Coursework.pyg'.
+
+
+(_minted-Foundations1Coursework/CA7177B025DC5BE5B438613EE560D1BC5AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex) [11] [12]
+Underfull \hbox (badness 10000) in paragraph at lines 404--406
 
  []
 
+\openout3 = `Foundations1Coursework.pyg'.
+
+
+(_minted-Foundations1Coursework/C900F8AD29E01B8B13867325DD88783D5AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex)
 \openout3 = `Foundations1Coursework.pyg'.
 
 
 (_minted-Foundations1Coursework/5AB3105C77751CF29CC7D4B866F0D32E5AF78B4405AA93C
 BF7A4FED9D495D25B.pygtex
-Underfull \hbox (badness 10000) in paragraph at lines 442--1
+Underfull \hbox (badness 10000) in paragraph at lines 418--1
 
  []
 
-)
-Underfull \hbox (badness 10000) in paragraph at lines 465--466
+) [13]
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
 
  []
 
 \openout3 = `Foundations1Coursework.pyg'.
 
 
-(_minted-Foundations1Coursework/5CF91C457BEAD6F61AA607F4158CB94E5AF78B4405AA93C
-BF7A4FED9D495D25B.pygtex) [12]
-Underfull \hbox (badness 10000) in paragraph at lines 490--491
+(_minted-Foundations1Coursework/0DCB88F414EE686A8215B46D428DBC6B5AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex) [14]
+Underfull \hbox (badness 10000) in paragraph at lines 466--467
 
  []
 
@@ -867,18 +907,139 @@ Underfull \hbox (badness 10000) in paragraph at lines 490--491
 
 
 (_minted-Foundations1Coursework/AF97C573F3D030CF35DD6F520222A2765AF78B4405AA93C
-BF7A4FED9D495D25B.pygtex) [13] [14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 603--605
+BF7A4FED9D495D25B.pygtex) [15]
+Underfull \hbox (badness 10000) in paragraph at lines 484--486
+
+ []
+
+\openout3 = `Foundations1Coursework.pyg'.
+
+
+(_minted-Foundations1Coursework/FEBD653692609C96F8183B22D438BA235AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex)
+\openout3 = `Foundations1Coursework.pyg'.
+
+
+(_minted-Foundations1Coursework/1433A2BA5E52814E17F84A943F37E0555AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex)
+\openout3 = `Foundations1Coursework.pyg'.
+
+
+(_minted-Foundations1Coursework/196659A0C889B2D157253C8C7A626AAF5AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex) [16]
+\openout3 = `Foundations1Coursework.pyg'.
+
+
+(_minted-Foundations1Coursework/5CABB8E8A18F3376E2830C9B61B31B4D5AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex) [17] [18]
+\openout3 = `Foundations1Coursework.pyg'.
+
+
+(_minted-Foundations1Coursework/CDB85DC5BF59300B60B4AB47C18359BE5AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex
+Underfull \hbox (badness 10000) in paragraph at lines 565--1
+
+ []
+
+)
+\openout3 = `Foundations1Coursework.pyg'.
+
+
+(_minted-Foundations1Coursework/1347D27BBEF07C39083CC8AE62478A225AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex [19]) [20]
+\openout3 = `Foundations1Coursework.pyg'.
+
+
+(_minted-Foundations1Coursework/8BB96D4521A1E2187B1C3F75874B73C25AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex [21]) [22]
+\openout3 = `Foundations1Coursework.pyg'.
+
+
+(_minted-Foundations1Coursework/E471EF76B45F36A17D27803B18182E6B5AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex [23] [24])
+\openout3 = `Foundations1Coursework.pyg'.
+
+runsystem(python -c "import sys; import os; import textwrap; from io import ope
+n; f = open(os.path.expanduser(os.path.expandvars(\"Foundations1Coursework.pyg\
+")), \"r\", encoding=\"UTF8\"); t = f.readlines(); f.close(); f = open(os.path.
+expanduser(os.path.expandvars(\"Foundations1Coursework.pyg\")), \"w\", encoding
+=\"UTF8\"); fvstartnum = 0; fvstopnum = 0; s = fvstartnum-1 if fvstartnum != 0 
+else 0; e = fvstopnum if fvstopnum != 0 else len(t); [f.write(textwrap.dedent(\
+"\".join(x))) for x in (t[0:s], t[s:e], t[e:]) if x]; f.close();")...executed.
+
+runsystem(pygmentize -l sml -f latex -P commandprefix=PYG -F tokenmerge -o _min
+ted-Foundations1Coursework/C0F019B515631FA3B46EF8485FD97BBD5AF78B4405AA93CBF7A4
+FED9D495D25B.pygtex Foundations1Coursework.pyg)...executed.
+
+
+(_minted-Foundations1Coursework/C0F019B515631FA3B46EF8485FD97BBD5AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex)
+\openout3 = `Foundations1Coursework.pyg'.
+
+runsystem(python -c "import sys; import os; import textwrap; from io import ope
+n; f = open(os.path.expanduser(os.path.expandvars(\"Foundations1Coursework.pyg\
+")), \"r\", encoding=\"UTF8\"); t = f.readlines(); f.close(); f = open(os.path.
+expanduser(os.path.expandvars(\"Foundations1Coursework.pyg\")), \"w\", encoding
+=\"UTF8\"); fvstartnum = 0; fvstopnum = 0; s = fvstartnum-1 if fvstartnum != 0 
+else 0; e = fvstopnum if fvstopnum != 0 else len(t); [f.write(textwrap.dedent(\
+"\".join(x))) for x in (t[0:s], t[s:e], t[e:]) if x]; f.close();")...executed.
+
+runsystem(pygmentize -l sml -f latex -P commandprefix=PYG -F tokenmerge -o _min
+ted-Foundations1Coursework/DDB9D034F1AA028C8DF6B8BC2B3F88BD5AF78B4405AA93CBF7A4
+FED9D495D25B.pygtex Foundations1Coursework.pyg)...executed.
+
+
+(_minted-Foundations1Coursework/DDB9D034F1AA028C8DF6B8BC2B3F88BD5AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex) [25]
+\openout3 = `Foundations1Coursework.pyg'.
+
+
+(_minted-Foundations1Coursework/E9A09E101B6FF6DA6AE5D3FFAADA7A6B85D552F3ABB662D
+EE55FB4EDDDFEC816.pygtex) [26] [27]
+Underfull \hbox (badness 10000) in paragraph at lines 881--883
+
+ []
+
+\openout3 = `Foundations1Coursework.pyg'.
+
+
+(_minted-Foundations1Coursework/4AE256C9840171029B1F21FD913A554E5AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 893--898
+
+ []
+
+\openout3 = `Foundations1Coursework.pyg'.
+
+
+(_minted-Foundations1Coursework/F24B9DFAD29E8B11128422B0E2265D0A5AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex)
+\openout3 = `Foundations1Coursework.pyg'.
+
+
+(_minted-Foundations1Coursework/9586F408126C7EE126B351346F5F033E5AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex) [28]
+\openout3 = `Foundations1Coursework.pyg'.
+
+
+(_minted-Foundations1Coursework/E4E7DCE4C138AF41D0D974D44BEA78695AF78B4405AA93C
+BF7A4FED9D495D25B.pygtex)
+\openout3 = `Foundations1Coursework.pyg'.
+
+
+(_minted-Foundations1Coursework/84DD1AA29C0BB0F4F1A39D33F14277AF85D552F3ABB662D
+EE55FB4EDDDFEC816.pygtex [29] [30] [31]) [32]
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1060
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 618--621
+Underfull \hbox (badness 10000) in paragraph at lines 1073--1076
 
  []
 
 
-Overfull \hbox (20.86784pt too wide) in paragraph at lines 622--628
+Overfull \hbox (20.86784pt too wide) in paragraph at lines 1077--1083
 \OML/cmm/m/it/10.95 ![]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 xyx[]:xzx[]\OT1
 /cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 ![]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
 .95 yx[]:xzx[]\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 ![]\OT1/cmr/m/n/10.
@@ -887,12 +1048,12 @@ Overfull \hbox (20.86784pt too wide) in paragraph at lines 622--628
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 631--633
+Underfull \hbox (badness 10000) in paragraph at lines 1086--1088
 
  []
 
 
-Overfull \hbox (9.88pt too wide) in paragraph at lines 635--646
+Overfull \hbox (9.88pt too wide) in paragraph at lines 1090--1101
 \OT1/cmr/m/n/10.95 We as-sume that ap-pli-ca-tion as-so-ciates to the left in $
 \OMS/cmsy/m/n/10.95 M[]$\OT1/cmr/m/n/10.95 . I.e., $\OML/cmm/m/it/10.95 P[]Q[]R
 []$ \OT1/cmr/m/n/10.95 stands for $((\OML/cmm/m/it/10.95 P[]Q[]\OT1/cmr/m/n/10.
@@ -900,22 +1061,26 @@ Overfull \hbox (9.88pt too wide) in paragraph at lines 635--646
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 635--646
+Underfull \hbox (badness 10000) in paragraph at lines 1090--1101
 
  []
 
-[16] [17] (Foundations1Coursework.aux)
+[33]
+runsystem(del _minted-Foundations1Coursework\1D49B98B2F62D96679C1E84AFA48E9C685
+D552F3ABB662DEE55FB4EDDDFEC816.pygtex)...executed.
+
+ [34] (Foundations1Coursework.aux)
 runsystem(del Foundations1Coursework.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 6670 strings out of 493333
- 110108 string characters out of 3139194
- 229904 words of memory out of 3000000
- 9997 multiletter control sequences out of 15000+200000
- 14748 words of font info for 62 fonts, out of 3000000 for 9000
+ 6751 strings out of 493333
+ 116315 string characters out of 3139194
+ 238870 words of memory out of 3000000
+ 10024 multiletter control sequences out of 15000+200000
+ 16360 words of font info for 70 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,11n,26p,903b,630s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,15n,26p,903b,682s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Program Files/MiK
@@ -928,12 +1093,14 @@ e1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
 rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/symbols/msbm10.pfb>
-Output written on Foundations1Coursework.pdf (17 pages, 197030 bytes).
+ts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/m
+sbm10.pfb>
+Output written on Foundations1Coursework.pdf (34 pages, 243519 bytes).
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
+ 183 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

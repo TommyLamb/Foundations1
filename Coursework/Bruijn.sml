@@ -14,8 +14,8 @@ fun printEXP (BID x) = print (Int.toString x)
 	);
 
 val vx = BID 1;
-val vy = BID 2;
-val vz = BID 3;
+val vy = BID 1;
+val vz = BID 1;
 
 
 val t1 = BLAM (BID 1);

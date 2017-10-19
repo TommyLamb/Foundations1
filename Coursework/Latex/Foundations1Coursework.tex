@@ -14,85 +14,20 @@
 \usepackage{amssymb, amsmath}
 \usepackage{color}
 
-% for \includegraphics
-%\usepackage{graphicx}
+
 \usepackage{rotating} %It's a big table
 \usepackage{minted}
 \setminted{autogobble, breakautoindent, breaklines, breakafter=(}
+\AtBeginEnvironment{minted}{
+  \renewcommand{\fcolorbox}[4][]{#4}} % prevents red error box erroneously appearing around double brackets eg ((
+  %https://github.com/gpoore/minted/issues/69
+  
 
 \newenvironment{neverbreak} %https://tex.stackexchange.com/questions/94699/absolutely-definitely-preventing-page-break
 {\par\nobreak\vfil\penalty0\vfilneg
 	\vtop\bgroup}
 {\par\xdef\tpd{\the\prevdepth}\egroup
 	\prevdepth=\tpd}
-
-%\def\rrightarrow{\rightarrow \hspace{-.65em} \rightarrow}
-%\newcommand{\la}{\lambda}
-%\newcommand{\sep}{\mbox{$.$}}  
-%\newcommand{\at}{\mbox{$\hspace{0.2em}$}}  
-%\newcommand{\be}{\beta}
-%\def\Rar{\Rightarrow}
-%\def\LRar{\Leftrightarrow}
-%\def\grval{\hspace{.4ex} \mid \hspace{-.5ex} \stackrel{\it val}{= \hspace{-.5ex} =} \hspace{.4ex}}
-%\def\isval{\hspace{.4ex} \stackrel{\it  val}{= \hspace{-.5ex} =} \hspace{.4ex}}
-%\newcommand{\ult}[2]{\mbox{$\lambda {#1} \sep {#2}$}}  % untyped lambda term
-%\def\ttT{{\tt True}}
-%\def\ttF{{\tt False}}
-%\def\nnull{{\bf null}}
-%\newcommand \cI {\mbox{I}''}
-%\newcommand \cK {\mbox{K}''}
-%\newcommand \mycS {\mbox{S}''}
-%\def\hd{{\bf hd}}
-%\def\tl{{\bf tl}}
-%\def\mycons{{\bf cons}}
-%\def\append{{\bf append}}
-%\def\reverse{{\bf reverse}}
-%\def\tc{{\bf cond }}
-%\def\tT{{\bf true }}
-%\def\tf{{\bf false }}
-%\newcommand {\cal M} {\cal M}
-%\def\equal{{\bf H }}
-%\def\mycons{{\bf cons}}
-%\def\append{{\bf append}}
-%\def\reverse{{\bf reverse}}
-%\def\tc{{\bf cond }}
-%\def\tT{{\bf true }}
-%\def\tf{{\bf false }}
-%\def\pair{{\bf pair}}
-%\def\fst{{\bf fst}}
-%\def\snd{{\bf snd}}
-%\def\ntuple{\mbox{{\bf n-tuple}}}
-%\def\nnull{{\bf null}}
-%\def\hd{{\bf hd}}
-%\def\tl{{\bf tl}}
-%\def\mycons{{\bf cons}}
-%\def\append{{\bf append}}
-%\def\reverse{{\bf reverse}}
-%\def\zero{{\bf 0}}
-%\def\one{{\bf 1}}
-%\def\two{{\bf 2}}
-%\def\three{{\bf 3}}
-%\def\six{{\bf 6}}
-%
-%\def\myn{{\bf n}}
-%\def\mym{{\bf m}}
-%\def\mynn{{\bf n+1}}
-%\def\mynm{{\bf n+m}}
-%\def\myntm{{\bf nxm}}
-%\def\succ{{\bf succ}}
-%\def\add{{\bf add}}
-%\def\iszero{{\bf iszero}}
-%\def\times{{\bf times}}
-%\def\fact{{\bf fact}}
-%\def\factfn{{\bf factfn}}
-%\def\pre{{\bf pre}}
-
-
-
-
-
-
-
 
 
 \begin{document}
@@ -104,7 +39,7 @@ Throughout the assignment, assume the terms and definitions given in the DATA SH
 \\
 \\
 Please note that all SML code was defined in separate structures corresponding to the notation they implement. These structures are named \texttt{Lambda, Item, Bruijn, ItemBruijn, Combinatorics}. \\
-As such, various function and variable names are repeated across the structures where they are functionally similar, though they are different in implementation. Consequently code provided in this report may seem contradictory, as functions with the same name produce different output and handle different types.
+As such, various function and variable names are repeated across the structures where they are functionally similar, though different in implementation. Consequently code provided in this report may seem contradictory, as functions with the same name produce different output and handle different types.
 
 
 
@@ -115,13 +50,42 @@ As such, various function and variable names are repeated across the structures 
         Just like I defined translation functions  $T:{\cal M}'\mapsto {\cal M}''$ and  $\omega: {\cal M}\mapsto$ $\Lambda$, give translation functions from
         $U:{\cal M}\mapsto {\cal M}''$ and  $V:{\cal M}\mapsto{\cal M}'$ and  $\omega':{\cal M}'\mapsto$ $\Lambda'$.   Your translation functions need to be complete with all subfunctions and needed information (just like $T$ and $\omega$ were complete with all needed information).   Submit all these functions here.
         \hfill{(1)} % sets marks in () right justified
+        \\
+        \\
+        The function $V:{\cal M}\mapsto{\cal M}'$ is defined thus:\\ \\
+        $V(x) = x\qquad |\qquad V(\lambda x.y) = [x]V(y)\qquad |\qquad V(ab) = \langle V(b) \rangle V(a)$
+   \vspace{1cm}\\
+        The function $\omega':{\cal M}'\mapsto \Lambda'$ is defined thus:\\ \\
+		\begin{tabular}{lll}
+		$\omega'(\cal{M}')$&$ = \omega'_{[FV(\cal{M}')]}(\cal{M}')$\\ \\
+        $\omega'_{[v_1,\,...\, v_n]} (x)$&$ = \min(i:x\equiv v_i\; and\; v_i \in [v_1,\, ...\, v_n])  $&$ |$ \\
+        $\omega'_{[v_1,\,...\, v_n]}([x]y)$&$ = [\,]\omega'_{[x,\,v_1,\,...\, v_n]}(y) $&$ |$\\
+        $\omega'_{[v_1,\,...\, v_n]}(\langle b\rangle a)$&$ = \langle\omega_{[v_1,\,...\, v_n]}(b)\rangle\omega_{[v_1,\,...\, v_n]}(a) $\\
+		\end{tabular}
+		\vspace{1cm} 
+		\begin{neverbreak}
+		The function $U:{\cal M}\mapsto {\cal M}''$ is defined thus: \\ \\
+		$U(x) = x\qquad|\qquad U(\lambda x.y) = f(x, U(y)) \qquad|\qquad U(ab) = U(a)U(b)$ \\
+		where the function $f$ is defined thus:\\ \\
+		\begin{tabular}{lll}
+		$f(a, a)$ & $= I''$ & $|$\\
+		$f(a, b)$ & $= K''b \quad where\quad a \notin FV(b)$ & $|$\\
+		$f(a, bc)$ & $= b \quad if \quad a \notin FV(b) \quad and \quad a\equiv c$&$|$\\
+		$f(a, bc)$ & $= S''(f(a, b))(f(a, c))\quad if \quad a \in FV(b) \quad or \quad a\not \equiv c$\\
+		\end{tabular}
+		\end{neverbreak}
+		\vspace{1cm}
     \item
       For each of the SML terms vx, vy, vz, t1, $\cdots$ t9 in \url{http://www.macs.hw.ac.uk/~fairouz/foundations-2017/slides/data-files.sml}, let the overlined term represent the corresponding term in ${\cal M}$.  I.e., $\overline{\mbox{vx}} = x$, $\overline{\mbox{vy}} = y$, $\overline{\mbox{vz}} = z$, $\overline{\mbox{t1}} = \lambda x.x$, $\overline{\mbox{t2}}
       = \lambda y.x$, $\cdots$.\\
       For each of $\overline{\mbox{vx}}$, $\overline{\mbox{vy}}$, $\overline{\mbox{vz}}$, $\overline{\mbox{t1}}$,
       $\overline{\mbox{t2}}$, $\cdots \overline{\mbox{t9}}$ in ${\cal M}$, translate it into the corresponding terms of ${\cal M}'$, ${\cal M}''$, $\Lambda$ and  $\Lambda'$ using the translation functions $V$, $U$, $\omega$ and $\omega'$.  \\
-      Your output should be tidy as follows:
+      Your output should be tidy as follows:\hfill{(1)} % sets marks in () right justified
+      \\ \\
+      Table overleaf. \\
 \begin{sideways}
+\small
+\centering
       \begin{tabular}{|l|l|l|l|l|}
         \hline
         & $V$&$U$&$\omega$&$\omega'$\\
@@ -138,12 +102,11 @@ As such, various function and variable names are repeated across the structures 
 	$(((\lambda x.(\lambda y.(\lambda z.((x z) (y z))))) (\lambda x.x)) (\lambda x.x))$ & $\langle [x]x\rangle \langle [x]x\rangle [x][y][z]\langle \langle z\rangle y\rangle \langle z\rangle x$ & $((S'' I'') I'')$ & $(\lambda\lambda\lambda31(21))(\lambda1)(\lambda1)$ & $\langle[]1\rangle\langle[]1\rangle[][][]\langle\langle1\rangle2\rangle\langle1\rangle3$	\\
 	$(\lambda z.(z ((\lambda x.x) z)))$ & $[z]\langle \langle z\rangle [x]x\rangle z$ & $((S'' I'') I'')$ & $\lambda1((\lambda1)1)$ & $[]\langle\langle1\rangle[]1\rangle1$	\\
 	$((\lambda z.(z ((\lambda x.x) z))) (((\lambda x.x) (\lambda y.x)) z))$ & $\langle \langle z\rangle \langle [y]x\rangle [x]x\rangle [z]\langle \langle z\rangle [x]x\rangle z$ & $(((S'' I'') I'') ((I'' (K'' x)) z))$ & $(\lambda1((\lambda1)1))((\lambda1)(\lambda2)2)$ & $\langle\langle2\rangle\langle[]2\rangle[]1\rangle[]\langle\langle1\rangle[]1\rangle1$	\\
-        $\lambda x.x$ & $[x]x$ & $I''$ & $\lambda 1$ &$[\:]1$\\
         \hline
 
         \end{tabular}
     \end{sideways} 
-        \hfill{(1)} % sets marks in () right justified
+        
         
   \item
     Just like I introduced SML terms vx, vy, vz, t1, t2, $\cdots$ t9
@@ -213,8 +176,8 @@ val t9 = CAPP (CAPP (CAPP (CS, CI), CI), CAPP (CAPP (CI, CAPP (CK, vz)), vz));
 The implementation in $\Lambda$:
 \begin{minted}{sml}
 val vx = BID 1;
-val vy = BID 2;
-val vz = BID 3;
+val vy = BID 1;
+val vz = BID 1;
 
 val t1 = BLAM (BID 1);
 val t2 = BLAM (BID 2);
@@ -232,8 +195,8 @@ val t9 = BAPP (t8, t3);
 The implementation in $\Lambda'$:
 \begin{minted}{sml}
 val vx = IBID 1;
-val vy = IBID 2;
-val vz = IBID 3;
+val vy = IBID 1;
+val vz = IBID 1;
 
 val t1 = IBLAM (IBID 1);
 val t2 = IBLAM (IBID 2);
@@ -390,8 +353,8 @@ fun printEXP (BID x) = print (Int.toString x)
 	
 	
 vx:     1
-vy:     2
-vz:     3	
+vy:     1
+vz:     1	
 t1:     (!$\lambda$!1)
 t2:     (!$\lambda$!2)
 t3:     (((!$\lambda$!1)(!$\lambda$!2))2)
@@ -422,8 +385,8 @@ fun printEXP (IBID x) = print (Int.toString x)
 
 
 vx:     1
-vy:     2
-vz:     3
+vy:     1
+vz:     1
 t1:     []1
 t2:     []2
 t3:     <<[]2>[]1>2
@@ -601,11 +564,11 @@ val it = [CAPP (CK,CID "x"),CK,CID "x"] : COM list
 \end{verbatim}
  \hfill{(1)}\\ % sets marks in () right justified
 The set of subterms in ${\cal M}''$ for any term is defined as follows:\\ \\
-$subterm(v) = \{v\}\\
-subterm(\mbox{I}'') = \{\mbox{I}''\}\\
-subterm(\mbox{K}'') = \{\mbox{K}''\}\\
-subterm(\mbox{S}'') = \{\mbox{S}''\}\\
-subterm(AB) = \{AB\} \cup subterm(A) \cup subterm(B) $
+$subterm''(v) = \{v\}\\
+subterm''(\mbox{I}'') = \{\mbox{I}''\}\\
+subterm''(\mbox{K}'') = \{\mbox{K}''\}\\
+subterm''(\mbox{S}'') = \{\mbox{S}''\}\\
+subterm''(AB) = \{AB\} \cup subterm(A) \cup subterm(B) $
 \begin{minted}{sml}
 fun subtermsList (CID v) = [CID v]
 | subtermsList (CI) = [CI]
@@ -829,7 +792,7 @@ val it = (): unit
 
 \end{minted}
 
-\pagebreak
+\vspace{1cm}
 \item
 Implement $\eta$-reduction on ${\cal M}$ and test it on many examples of your own.
 Give the implementation as well as the test showing all the reduction steps one by one until you reach a $\eta$-normal form. 
@@ -853,7 +816,9 @@ fun hasEtaRedex (ID v) = false
   | hasEtaRedex (APP (a, b)) = (hasEtaRedex a) orelse (hasEtaRedex b);
 
 fun etaRed (LAM (v, (APP (a, ID b)))) = a;
-
+\end{minted}
+\begin{neverbreak}
+	\begin{minted}{sml}
 fun etaReduce (ID v) = [ID v]
   | etaReduce (LAM (v, a)) =
      if isEtaRedex (LAM (v, a)) then
@@ -877,7 +842,40 @@ fun etaReduce (ID v) = [ID v]
         appToList a (etaReduce b) (* Thus no recursive call on AB neccessary, only on b *)
     else (*No redexes *)
         [APP (a, b)];
-\end{minted}
+        
+        \end{minted}
+        \end{neverbreak}
+    \begin{neverbreak}
+        \begin{minted}[escapeinside=!!]{sml}
+      > val eta1 = LAM ("x", APP ( t1, ID "x"));
+      val eta1 = LAM ("x", APP (LAM ("x", ID "x"), ID "x")) : LEXP
+      > printEtaReduction(etaReduce eta1);
+      (!$\lambda$!x.((!$\lambda$!x.x) x)) -->!$\eta$!
+      (!$\lambda$!x.x)
+      val it = () : unit 
+      
+      > val eta2 = LAM ("z", APP (eta1, ID "z"));
+      val eta2 =
+         LAM ("z", APP (LAM ("x", APP (LAM ("x", ID "x"), ID "x")), ID "z")) : LEXP
+      > printEtaReduction (etaReduce eta2);
+      (!$\lambda$!z.((!$\lambda$!x.((!$\lambda$!x.x) x)) z)) -->!$\eta$!
+      (!$\lambda$!x.((!$\lambda$!x.x) x)) -->!$\eta$!
+      (!$\lambda$!x.x)
+      val it = () : unit
+      
+       > val eta3 = APP (eta2, eta1);
+       val eta3 =
+          APP
+             (LAM ("z", APP (LAM ("x", APP (LAM ("x", ID "x"), ID "x")), ID "z")),
+                LAM ("x", APP (LAM ("x", ID "x"), ID "x"))) : LEXP
+       > printEtaReduction (etaReduce eta3);
+       ((!$\lambda$!z.((!$\lambda$!x.((!$\lambda$!x.x) x)) z)) (!$\lambda$!x.((!$\lambda$!x.x) x))) -->!$\eta$!
+       ((!$\lambda$!x.((!$\lambda$!x.x) x)) (!$\lambda$!x.((!$\lambda$!x.x) x))) -->!$\eta$!
+       ((!$\lambda$!x.x) (!$\lambda$!x.((!$\lambda$!x.x) x))) -->!$\eta$!
+       ((!$\lambda$!x.x) (!$\lambda$!x.x))
+       val it = () : unit
+	\end{minted}
+\end{neverbreak}
 \pagebreak
 \item
 Translate $\Omega \equiv (\lambda x.xx)(\lambda x.xx)$ in each of ${\cal M}'$, ${\cal M}''$, $\Lambda$ and $\Lambda'$ and give the SML implementation of all these translations.  
@@ -895,7 +893,7 @@ Translate $\Omega \equiv (\lambda x.xx)(\lambda x.xx)$ in each of ${\cal M}'$, $
 Assume comega is your SML implementation of the term that corresponds to $\Omega$.  Run -creduce comega; and say what happens.  
   \hfill{(1)} % sets marks in () right justified
   \\ \\
-  The program rapidly consumes system memory with moderate CPU usage. Presumably if left to continue running the system would either crash, begin paging RAM to the hard drive, or the OS kills the process. Possibly some combination of those.
+  The program rapidly consumes system memory with moderate CPU usage. Presumably if left to continue running the system would either crash, begin paging RAM to the hard drive, or the OS kills the process. Possibly some combination of those. The code fails to self-terminate, as the term cannot be fully reduced.
 \item
 Give an implementation of leftmost reduction and rightmost reduction in ${\cal M}$ and test them on a number of examples that show which terminates more and which is more efficient. 
    \hfill{(2)} % sets marks in () right justified
@@ -912,7 +910,9 @@ fun hasBetaRedex (LAM(x, y)) = hasBetaRedex y
   
   (*beta-reduces a redex*)
 fun betaRed (APP(LAM(id,e1),e2)) = subs e2 id e1;
-  
+\end{minted}
+\begin{neverbreak}
+	\begin{minted}{sml}  
 fun leftmost (ID v) = [ID v]
   | leftmost (LAM (v, a)) =
 	 if hasBetaRedex a then
@@ -936,7 +936,10 @@ fun leftmost (ID v) = [ID v]
 		appToList a (leftmost b) (* Thus no recursive call on AB neccessary *)
 	else (*No redexes *)
 		[APP (a, b)];
-
+	\end{minted}
+\end{neverbreak}
+\begin{neverbreak}
+	\begin{minted}{sml}
 (* Rightmost reduction, as above but with the application redexes resolved in a different order *)
 fun rightmost (ID v) = [ID v]
   | rightmost (LAM (v, a)) =
@@ -965,6 +968,63 @@ fun rightmost (ID v) = [ID v]
 		(APP (a, b))::(rightmost(betaRed (APP(a, b))))
 	else (*No redexes *)
 		[APP (a, b)];
+\end{minted}
+\end{neverbreak}
+\vspace{1cm}
+\begin{minted}[escapeinside=!!]{sml}
+	> val beta1 = APP (t8, t1);
+	val beta1 =
+	   APP
+	      (LAM ("z", APP (ID "z", APP (LAM ("x", ID "x"), ID "z"))),
+	         LAM ("x", ID "x")) : LEXP 
+	> printBetaReduction (leftmost beta1);
+	((!$\lambda$!z.(z ((!$\lambda$!x.x) z))) (!$\lambda$!x.x)) -->!$\beta$!
+	((!$\lambda$!x.x) ((!$\lambda$!x.x) (!$\lambda$!x.x))) -->!$\beta$!
+	((!$\lambda$!x.x) (!$\lambda$!x.x)) -->!$\beta$!
+	(!$\lambda$!x.x)
+	val it = () : unit
+	> printBetaReduction (rightmost beta1);
+	((!$\lambda$!z.(z ((!$\lambda$!x.x) z))) (!$\lambda$!x.x)) -->!$\beta$!
+	((!$\lambda$!z.(z z)) (!$\lambda$!x.x)) -->!$\beta$!
+	((!$\lambda$!x.x) (!$\lambda$!x.x)) -->!$\beta$!
+	(!$\lambda$!x.x)
+	val it = () : unit
+	
+	
+	> val beta2 = APP (LAM ("x", ID "y"), omega);
+	val beta2 =
+	   APP
+	      (LAM ("x", ID "y"),
+	         APP
+	            (LAM ("x", APP (ID "x", ID "x")),
+	               LAM ("x", APP (ID "x", ID "x")))) : LEXP
+	> printBetaReduction (leftmost beta2);
+	((!$\lambda$!x.y) ((!$\lambda$!x.(x x)) (!$\lambda$!x.(x x)))) -->!$\beta$!
+	y
+	val it = () : unit
+	> printBetaReduction (rightmost beta2);
+	Exception- Interrupt raised 
+	(* Terminates only by user interrupt *);
+	
+	
+	> val beta3 = APP ( LAM ("z", ID "t"), beta1);
+	val beta3 =
+	   APP
+	      (LAM ("z", ID "t"),
+	         APP
+	            (LAM ("z", APP (ID "z", APP (LAM ("x", ID "x"), ID "z"))),
+	               LAM ("x", ID "x"))) : LEXP
+	> printBetaReduction (leftmost beta3);
+	((!$\lambda$!z.t) ((!$\lambda$!z.(z ((!$\lambda$!x.x) z))) (!$\lambda$!x.x))) -->!$\beta$!
+	t
+	val it = () : unit
+	> printBetaReduction (rightmost beta3);
+	((!$\lambda$!z.t) ((!$\lambda$!z.(z ((!$\lambda$!x.x) z))) (!$\lambda$!x.x))) -->!$\beta$!
+	((!$\lambda$!z.t) ((!$\lambda$!x.x) ((!$\lambda$!x.x) (!$\lambda$!x.x)))) -->!$\beta$!
+	((!$\lambda$!z.t) ((!$\lambda$!x.x) (!$\lambda$!x.x))) -->!$\beta$!
+	((!$\lambda$!z.t) (!$\lambda$!x.x)) -->!$\beta$!
+	t
+	val it = () : unit
 \end{minted}
 
 \end{enumerate}
