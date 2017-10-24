@@ -113,6 +113,8 @@ fun rightmost (ID v) = [ID v]
 		end
 	else if isBetaRedex b then
 		(APP (a, b))::(rightmost(APP(a, (betaRed b))))
+	else if isBetaRedex (APP (a, b)) then
+		(APP (a, b))::(rightmost(betaRed (APP(a, b))))
 	else if ((not (isBetaRedex a)) andalso (hasBetaRedex a)) then
 		let
 			val abreduction = (appFromList (rightmost a) b)
@@ -121,8 +123,6 @@ fun rightmost (ID v) = [ID v]
 		end
 	else if isBetaRedex a then
 		(APP (a, b))::(rightmost(APP((betaRed a), b)))
-	else if isBetaRedex (APP (a, b)) then
-		(APP (a, b))::(rightmost(betaRed (APP(a, b))))
 	else (*No redexes *)
 		[APP (a, b)];
 
