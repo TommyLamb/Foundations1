@@ -184,7 +184,7 @@ fun toItem (ID x) = IID x
 *  f (x, x) is erronous in SML. Also due to the fact that any if statement must have an else clause. 
 *  Also becuase ( CID x, CID y) and (CID x, COM y) are not mutually exclusive *)
 fun f (CID x, CAPP (a, b)) = 
-	if (((CID x) = b) andalso (not (Combinatorics.free (CID x) a))) then
+	if (((CID x) = b) andalso (not (Combinators.free (CID x) a))) then
 		a
 	else
 		CAPP( CAPP (CS, f ((CID x), a)), f ((CID x), b))
@@ -194,9 +194,9 @@ fun f (CID x, CAPP (a, b)) =
 	else (* clause 2 *)
 		 CAPP (CK, a); (* See comment on supporting documentation for omission of conditional *)
 
-fun toCombinatorics (ID x) = CID x
-  | toCombinatorics (APP (a, b)) = CAPP (toCombinatorics a, toCombinatorics b)
-  | toCombinatorics (LAM (x, a)) = f (CID x, (toCombinatorics a));
+fun toCombinators (ID x) = CID x
+  | toCombinators (APP (a, b)) = CAPP (toCombinators a, toCombinators b)
+  | toCombinators (LAM (x, a)) = f (CID x, (toCombinators a));
 
 val vx = (ID "x");
 val vy = (ID "y");

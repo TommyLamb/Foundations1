@@ -21,7 +21,7 @@ datatype LEXP = APP of LEXP * LEXP
        | ID of string;
 	   
 use "Bruijn.sml";
-use "Combinatorics.sml";
+use "Combinators.sml";
 use "Item.sml";
 use "ItemBruijn.sml";
 use "Lambda.sml";

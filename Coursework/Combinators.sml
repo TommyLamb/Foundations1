@@ -1,4 +1,4 @@
-structure Combinatorics = struct
+structure Combinators = struct
 
 fun printEXP (CID v) = print v
   | printEXP (CI) = print "I''"

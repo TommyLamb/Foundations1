@@ -5,7 +5,7 @@ structure Item = struct
 *  f (x, x) is erronous in SML. Also due to the fact that any if statement must have an else clause. 
 *  Also becuase ( CID x, CID y) and (CID x, COM y) are not mutually exclusive *)
 fun f (CID x, CAPP (a, b)) = 
-	if (((CID x) = b) andalso (not (Combinatorics.free (CID x) a))) then
+	if (((CID x) = b) andalso (not (combinators.free (CID x) a))) then
 		a
 	else
 		CAPP( CAPP (CS, f ((CID x), a)), f ((CID x), b))
@@ -15,9 +15,9 @@ fun f (CID x, CAPP (a, b)) =
 	else (* clause 2 *)
 		 CAPP (CK, a); (* See comment on supporting documentation for omission of conditional *)
 
-fun toCombinatorics (IID x) = CID x
-  | toCombinatorics (IAPP (a, b)) = CAPP (toCombinatorics b, toCombinatorics a)
-  | toCombinatorics (ILAM (x, a)) = f (CID x, (toCombinatorics a));
+fun toCombinators (IID x) = CID x
+  | toCombinators (IAPP (a, b)) = CAPP (toCombinators b, toCombinators a)
+  | toCombinators (ILAM (x, a)) = f (CID x, (toCombinators a));
 
 fun printEXP (IID x) = print x
   | printEXP (ILAM (x, y)) = (
