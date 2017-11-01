@@ -979,13 +979,13 @@ fun rightmost (ID v) = [ID v]
 	         LAM ("x", ID "x")) : LEXP 
 	> printBetaReduction (leftmost beta1);
 	((!$\lambda$!z.(z ((!$\lambda$!x.x) z))) (!$\lambda$!x.x)) -->!$\beta$!
-	((!$\lambda$!x.x) ((!$\lambda$!x.x) (!$\lambda$!x.x))) -->!$\beta$!
+	((!$\lambda$!x.x) ((!$\lambda$!x.x) (x!$\lambda$!.x))) -->!$\beta$!
 	((!$\lambda$!x.x) (!$\lambda$!x.x)) -->!$\beta$!
 	(!$\lambda$!x.x)
 	val it = () : unit
 	> printBetaReduction (rightmost beta1);
 	((!$\lambda$!z.(z ((!$\lambda$!x.x) z))) (!$\lambda$!x.x)) -->!$\beta$!
-	((!$\lambda$!z.(z z)) (!$\lambda$!x.x)) -->!$\beta$!
+	((!$\lambda$!x.x) ((!$\lambda$!x.x) (!$\lambda$!x.x))) -->!$\beta$!
 	((!$\lambda$!x.x) (!$\lambda$!x.x)) -->!$\beta$!
 	(!$\lambda$!x.x)
 	val it = () : unit
