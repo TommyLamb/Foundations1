@@ -1,5 +1,5 @@
-\title{\bf Foundations1 assignment 2017}
-\author{Fairouz Kamareddine }
+\title{\bf Foundations 1 assignment 2017}
+\author{Tommy Lamb}
 \documentclass[11pt]{article} 
 
 %\documentclass{article}
@@ -9,6 +9,7 @@
 
 %\usepackage{alltt}
 \usepackage{verbatimbox}
+\usepackage{graphics}
 \usepackage{url}
 \usepackage{latexsym}
 \usepackage{amssymb, amsmath}
@@ -32,12 +33,35 @@
 
 \begin{document}
 
-\maketitle
+\begin{titlepage}
+	\thispagestyle{empty}
+	{\centering
+		\includegraphics[width=0.5\textwidth]{heriot-watt-logo.png}\par\vspace{1cm}
+	%	{\scshape\LARGE Heriot-Watt University \par}
+		\vspace{1cm}
+		{\LARGE F29FA - Foundations 1\par}
+		{\LARGE Coursework\par}
+		\vspace{1.5cm}
+	%	{\scshape\Large Coursework\par}
+		\vspace{1.5cm}
+		{\scshape\LARGE\bfseries Implementing the Lambda Calculus in SML \par}
+		\vspace{5cm}
+		\begin{center}
+				November 4\textsuperscript{th} 2017
+		\end{center}
+		\vspace{1cm}
+		\textit{Author}\par
+		\begin{tabular}{rcl}
+			\\
+			\textsc{Tommy Ian Lamb} & - & H00217505 \\
+		\end{tabular} \\
+		
+
+			
+	}
+\end{titlepage}
 
 
-Throughout the assignment, assume the terms and definitions given in the DATA SHEET.
-\\
-\\
 Please note that all SML code was defined in separate structures corresponding to the notation they implement. These structures are named \texttt{Lambda, Item, Bruijn, ItemBruijn, Combinators}. \\
 As such, various function and variable names are repeated across the structures where they are functionally similar, though different in implementation. Consequently code provided in this report may seem contradictory, as functions with the same name produce different output and handle different types.
 
@@ -579,10 +603,10 @@ fun subtermsList (CID v) = [CID v]
 (* Remove duplicates from a list *)
 fun setify [] = []
 | setify (hd::tl) = 
-if (List.exists (fn x => hd = x) tl) then
-setify tl
-else
-hd::setify tl;
+	if (List.exists (fn x => hd = x) tl) then
+		setify tl
+	else
+		hd::setify tl;
 
 fun subterms x = setify (subtermsList x);
 
@@ -971,6 +995,7 @@ fun rightmost (ID v) = [ID v]
 \end{minted}
 \end{neverbreak}
 \vspace{1cm}
+\begin{neverbreak}
 \begin{minted}[escapeinside=!!]{sml}
 	> val beta1 = APP (t8, t1);
 	val beta1 =
@@ -989,8 +1014,11 @@ fun rightmost (ID v) = [ID v]
 	((!$\lambda$!x.x) (!$\lambda$!x.x)) -->!$\beta$!
 	(!$\lambda$!x.x)
 	val it = () : unit
+\end{minted}
+\end{neverbreak}
 	
-	
+\begin{neverbreak}
+\begin{minted}[escapeinside=!!]{sml}
 	> val beta2 = APP (LAM ("x", ID "y"), omega);
 	val beta2 =
 	   APP
@@ -1005,7 +1033,11 @@ fun rightmost (ID v) = [ID v]
 	> printBetaReduction (rightmost beta2);
 	Exception- Interrupt raised 
 	(* Terminates only by user interrupt *);
+\end{minted}
+\end{neverbreak}
 	
+\begin{neverbreak}
+\begin{minted}[escapeinside=!!]{sml}	
 	
 	> val beta3 = APP ( LAM ("z", ID "t"), beta1);
 	val beta3 =
@@ -1026,6 +1058,57 @@ fun rightmost (ID v) = [ID v]
 	t
 	val it = () : unit
 \end{minted}
+\end{neverbreak}
+	
+\begin{neverbreak}
+\begin{minted}[escapeinside=!!]{sml}	
+	
+	> val beta4 = APP ( LAM ("x", APP (APP (APP ( ID "x", ID "x"), ID "x"), ID "x")), APP (LAM ("y", ID "y"), ID "z"));
+	val beta4 =
+	   APP
+	      (LAM ("x", APP (APP (APP (ID "x", ID "x"), ID "x"), ID "x")),
+	         APP (LAM ("y", ID "y"), ID "z")) : LEXP
+	> printBetaReduction (leftmost beta4);
+	((!$\lambda$!x.(((x x) x) x)) ((!$\lambda$!y.y) z)) -->!$\beta$!
+	(((((!$\lambda$!y.y) z) ((!$\lambda$!y.y) z)) ((!$\lambda$!y.y) z)) ((!$\lambda$!y.y) z)) -->!$\beta$!
+	(((z ((!$\lambda$!y.y) z)) ((!$\lambda$!y.y) z)) ((!$\lambda$!y.y) z)) -->!$\beta$!
+	(((z z) ((!$\lambda$!y.y) z)) ((!$\lambda$!y.y) z)) -->!$\beta$!
+	(((z z) z) ((!$\lambda$!y.y) z)) -->!$\beta$!
+	(((z z) z) z)
+	val it = () : unit
+	> printBetaReduction (rightmost beta4);
+	((!$\lambda$!x.(((x x) x) x)) ((!$\lambda$!y.y) z)) -->!$\beta$!
+	((!$\lambda$!x.(((x x) x) x)) z) -->!$\beta$!
+	(((z z) z) z)
+	val it = () : unit
+\end{minted}
+\end{neverbreak}
+	
+\begin{neverbreak}
+\begin{minted}[escapeinside=!!]{sml}
+	> val beta5 = APP (LAM ("z", APP (ID "z", APP (LAM ( "x", ID "x"), ID "z"))), APP (APP (LAM ("x", ID "x"), LAM ( "y", ID "x")), ID "z"));
+	val beta5 =
+	   APP
+	      (LAM ("z", APP (ID "z", APP (LAM ("x", ID "x"), ID "z"))),
+	         APP (APP (LAM ("x", ID "x"), LAM ("y", ID "x")), ID "z")) : LEXP
+	> printBetaReduction(leftmost beta5);
+	((!$\lambda$!z.(z ((!$\lambda$!x.x) z))) (((!$\lambda$!x.x) (!$\lambda$!y.x)) z)) -->!$\beta$!
+	((((!$\lambda$!x.x) (!$\lambda$!y.x)) z) ((!$\lambda$!x.x) (((!$\lambda$!x.x) (!$\lambda$!y.x)) z))) -->!$\beta$!
+	(((!$\lambda$!y.x) z) ((!$\lambda$!x.x) (((!$\lambda$!x.x) (!$\lambda$!y.x)) z))) -->!$\beta$!
+	(x ((!$\lambda$!x.x) (((!$\lambda$!x.x) (!$\lambda$!y.x)) z))) -->!$\beta$!
+	(x (((!$\lambda$!x.x) (!$\lambda$!y.x)) z)) -->!$\beta$!
+	(x ((!$\lambda$!y.x) z)) -->!$\beta$!
+	(x x)
+	val it = () : unit
+	> printBetaReduction(rightmost beta5);
+	((!$\lambda$!z.(z ((!$\lambda$!x.x) z))) (((!$\lambda$!x.x) (!$\lambda$!y.x)) z)) -->!$\beta$!
+	((!$\lambda$!z.(z ((!$\lambda$!x.x) z))) ((!$\lambda$!y.x) z)) -->!$\beta$!
+	((!$\lambda$!z.(z ((!$\lambda$!x.x) z))) x) -->!$\beta$!
+	(x ((!$\lambda$!x.x) x)) -->!$\beta$!
+	(x x)
+	val it = () : unit
+\end{minted}
+\end{neverbreak}
 
 \end{enumerate}
 \newpage
