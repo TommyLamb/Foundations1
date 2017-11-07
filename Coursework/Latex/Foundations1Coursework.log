@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.12)  6 NOV 2017 22:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.12)  7 NOV 2017 00:11
 entering extended mode
 **./Foundations1Coursework.tex
 (Foundations1Coursework.tex
@@ -880,7 +880,7 @@ EE55FB4EDDDFEC816.pygtex) [10]
 \openout3 = `Foundations1Coursework.pyg'.
 
 
-(_minted-Foundations1Coursework/00F329A2FCC518FA4D13A4A0C119D8F75AF78B4405AA93C
+(_minted-Foundations1Coursework/4059FD5D15B00B7CBFC24F25877150AB5AF78B4405AA93C
 BF7A4FED9D495D25B.pygtex) [11] [12]
 Underfull \hbox (badness 10000) in paragraph at lines 428--430
 
@@ -1035,44 +1035,7 @@ EE55FB4EDDDFEC816.pygtex) [32]
 
 
 (_minted-Foundations1Coursework/12F44BA16CDEA64D182A227807A916DF85D552F3ABB662D
-EE55FB4EDDDFEC816.pygtex) [33] [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1141--1143
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1156--1159
-
- []
-
-
-Overfull \hbox (20.86784pt too wide) in paragraph at lines 1160--1166
-\OML/cmm/m/it/10.95 ![]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 xyx[]:xzx[]\OT1
-/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 ![]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
-.95 yx[]:xzx[]\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 ![]\OT1/cmr/m/n/10.
-95 (\OML/cmm/m/it/10.95 x[]:xzx[]\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 
-![]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 xzx[]\OT1/cmr/m/n/10.95 ) =
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1169--1171
-
- []
-
-
-Overfull \hbox (9.88pt too wide) in paragraph at lines 1173--1184
-\OT1/cmr/m/n/10.95 We as-sume that ap-pli-ca-tion as-so-ciates to the left in $
-\OMS/cmsy/m/n/10.95 M[]$\OT1/cmr/m/n/10.95 . I.e., $\OML/cmm/m/it/10.95 P[]Q[]R
-[]$ \OT1/cmr/m/n/10.95 stands for $((\OML/cmm/m/it/10.95 P[]Q[]\OT1/cmr/m/n/10.
-95 )\OML/cmm/m/it/10.95 R[]\OT1/cmr/m/n/10.95 )$. 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1173--1184
-
- []
-
-[35] [36] (Foundations1Coursework.aux)
+EE55FB4EDDDFEC816.pygtex) [33] [34] (Foundations1Coursework.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1080,33 +1043,31 @@ runsystem(del Foundations1Coursework.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 6768 strings out of 493333
- 117754 string characters out of 3139194
+ 6767 strings out of 493333
+ 117737 string characters out of 3139194
  243343 words of memory out of 3000000
- 10029 multiletter control sequences out of 15000+200000
- 15311 words of font info for 65 fonts, out of 3000000 for 9000
+ 10028 multiletter control sequences out of 15000+200000
+ 15012 words of font info for 64 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,15n,26p,1237b,643s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
-17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols
-/msbm10.pfb>
-Output written on Foundations1Coursework.pdf (37 pages, 279295 bytes).
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmtt10.pfb>
+Output written on Foundations1Coursework.pdf (35 pages, 256742 bytes).
 PDF statistics:
- 196 PDF objects out of 1000 (max. 8388607)
+ 179 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
